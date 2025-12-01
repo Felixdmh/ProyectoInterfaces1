@@ -9,6 +9,8 @@ import Controlador.Controlador;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Vista extends JFrame {
 
@@ -18,6 +20,7 @@ public class Vista extends JFrame {
     // Paneles
     public JPanel PanelInicioSesion;
     public JPanel PanelMenuPrincipal;
+    public JPanel PanelRegistro;
 
     // Componentes Inicio Sesión
     public JLabel lblCuenta, lblUsuario, lblContraseña, lblUsuarioFoto, lblContraseñaFoto, lblFondoCuenta, lblFotoFondo, lblGif;
@@ -28,6 +31,13 @@ public class Vista extends JFrame {
     // Componentes Menú Principal
     public JLabel LogoPeque;
     public JButton btnPideYa;
+    public JTextField textNombre;
+    public JTextField textCorreo;
+    public JTextField textContrasena;
+    public JTextField textRepetirContrasena;
+    
+    // Componentes Registro
+    public JButton btnValidar;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -49,6 +59,65 @@ public class Vista extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        
+        PanelRegistro = new JPanel();
+        PanelRegistro.setVisible(false);
+        PanelRegistro.setBounds(0, 0, 384, 545);
+        contentPane.add(PanelRegistro);
+        PanelRegistro.setLayout(null);
+        
+        JLabel lblRegistro = new JLabel("REGISTRO");
+        lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 30));
+        lblRegistro.setBounds(104, 40, 159, 66);
+        PanelRegistro.add(lblRegistro);
+        
+        JLabel lblNombre = new JLabel("NOMBRE");
+        lblNombre.setBounds(40, 133, 46, 14);
+        PanelRegistro.add(lblNombre);
+        
+        textNombre = new JTextField();
+        textNombre.setBounds(40, 158, 86, 20);
+        PanelRegistro.add(textNombre);
+        textNombre.setColumns(10);
+        
+        JLabel lblCorreo = new JLabel("CORREO ELECTRONICO");
+        lblCorreo.setBounds(40, 218, 159, 14);
+        PanelRegistro.add(lblCorreo);
+        
+        textCorreo = new JTextField();
+        textCorreo.setBounds(40, 251, 86, 20);
+        PanelRegistro.add(textCorreo);
+        textCorreo.setColumns(10);
+        
+        JLabel lblContrasena = new JLabel("CONTRASENA");
+        lblContrasena.setBounds(40, 291, 159, 14);
+        PanelRegistro.add(lblContrasena);
+        
+        textContrasena = new JTextField();
+        textContrasena.setBounds(40, 316, 86, 20);
+        PanelRegistro.add(textContrasena);
+        textContrasena.setColumns(10);
+        
+        JLabel lblRepetirContrasena = new JLabel("REPETIR CONTRASENA");
+        lblRepetirContrasena.setBounds(40, 347, 159, 14);
+        PanelRegistro.add(lblRepetirContrasena);
+        
+        textRepetirContrasena = new JTextField();
+        textRepetirContrasena.setBounds(40, 373, 86, 20);
+        PanelRegistro.add(textRepetirContrasena);
+        textRepetirContrasena.setColumns(10);
+        
+        JLabel lblVerificacion = new JLabel("VERIFICACION");
+        lblVerificacion.setBounds(40, 463, 120, 14);
+        PanelRegistro.add(lblVerificacion);
+        
+        btnValidar = new JButton("");
+        btnValidar.setBounds(235, 459, 38, 34);
+        PanelRegistro.add(btnValidar);
+        
+        JLabel lblFotoFondo2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+        lblFotoFondo2.setBounds(0, 0, 390, 550);
+        PanelRegistro.add(lblFotoFondo2);
 
         // ------------------- PANEL INICIO SESIÓN -------------------
         PanelInicioSesion = new JPanel();

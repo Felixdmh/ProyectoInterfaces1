@@ -28,6 +28,57 @@ public class Controlador {
     }
 
     private void inicializarListeners() {
+    	
+    	vista.btnReg.addActionListener(e -> {
+    	    vista.PanelRegistro.setVisible(true);
+    	    vista.PanelInicioSesion.setVisible(false);
+    	    vista.PanelMenuPrincipal.setVisible(false);
+    	});
+    	
+    	vista.btnValidar.addActionListener(new ActionListener() {
+    	    @Override
+    	    public void actionPerformed(ActionEvent e) {
+
+    	        String nombre = vista.textNombre.getText().trim();
+    	        String correo = vista.textCorreo.getText().trim();
+    	        String contrasena = vista.textContrasena.getText().trim();
+    	        String repetirContrasena = vista.textRepetirContrasena.getText().trim();
+
+    	        // Validaciones
+    	        if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty() || repetirContrasena.isEmpty()) {
+    	            JOptionPane.showMessageDialog(vista, "Por favor, complete todos los campos.");
+    	            return;
+    	        }
+
+    	        if (!contrasena.equals(repetirContrasena)) {
+    	            JOptionPane.showMessageDialog(vista, "Las contraseñas no coinciden.");
+    	            return;
+    	        }
+
+    	        // comprobar usuario existente
+    	        for (Usuarios u : listaUsuarios) {
+    	            if (u.getNombre().equalsIgnoreCase(nombre)) {
+    	                JOptionPane.showMessageDialog(vista, "El nombre de usuario ya existe.");
+    	                return;
+    	            }
+    	        }
+
+    	        // Añadir usuario
+    	        listaUsuarios.add(new Usuarios(nombre, contrasena));
+    	        JOptionPane.showMessageDialog(vista, "Registro exitoso. Ahora puede iniciar sesión.");
+
+    	        // LIMPIAR CAMPOS
+    	        vista.textNombre.setText("");
+    	        vista.textCorreo.setText("");
+    	        vista.textContrasena.setText("");
+    	        vista.textRepetirContrasena.setText("");
+
+    	        // Volver al menú
+    	        vista.PanelRegistro.setVisible(false);
+    	        vista.PanelInicioSesion.setVisible(true);
+    	    }
+    	});
+
 
         // ------------ LISTENER INICIO SESIÓN ------------
         vista.btnInSes.addActionListener(new ActionListener() {
