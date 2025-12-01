@@ -30,6 +30,7 @@ public class Vista extends JFrame {
 	public JLabel lblContraseñaFoto;
 	public JLabel lblFondoCuenta;
 	public JLabel lblFotoFondo;
+	public JLabel lblGif;
 
 	/**
 	 * Launch the application.
@@ -66,8 +67,8 @@ public class Vista extends JFrame {
 		
 
 		lblUsuarioFoto = new JLabel("");
-		lblUsuarioFoto.setBounds(268, 172, 45, 43);
-		lblUsuarioFoto.setIcon(new ImageIcon("imagenes/usuario.png")); 
+		lblUsuarioFoto.setBounds(119, 119, 45, 43);
+		lblUsuarioFoto.setIcon(new ImageIcon("imagenes/logo2.png")); 
 		PanelInicioSesion.add(lblUsuarioFoto);
 		
 		
@@ -86,7 +87,7 @@ public class Vista extends JFrame {
 		lblUsuario.setBackground(new Color(255, 255, 255));
 		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
 		lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblUsuario.setBounds(10, 121, 208, 31);
+		lblUsuario.setBounds(10, 131, 208, 31);
 		PanelInicioSesion.add(lblUsuario);
 		
 		btnReg = new JButton("Registrarse");
@@ -101,7 +102,7 @@ public class Vista extends JFrame {
 		lblContraseña = new JLabel("Contraseña");
 		lblContraseña.setHorizontalAlignment(SwingConstants.LEFT);
 		lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblContraseña.setBounds(10, 248, 208, 31);
+		lblContraseña.setBounds(10, 258, 208, 31);
 		PanelInicioSesion.add(lblContraseña);
 		lblContraseña.setBackground(new Color(25, 25, 245));
 		
@@ -115,12 +116,13 @@ public class Vista extends JFrame {
 		
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(10, 299, 254, 43);
+		passwordField.setBounds(10, 299, 190, 25);
 		PanelInicioSesion.add(passwordField);
 		
 		lblContraseñaFoto = new JLabel("");
-		lblContraseñaFoto.setBounds(219, 299, 45, 43);
+		lblContraseñaFoto.setBounds(160, 246, 45, 43);
 		PanelInicioSesion.add(lblContraseñaFoto);
+		lblContraseñaFoto.setIcon(new ImageIcon("imagenes/candado.png"));
 		
 		lblFondoCuenta = new JLabel("");
 		lblFondoCuenta.setBounds(42, 20, 295, 48);
@@ -131,14 +133,19 @@ public class Vista extends JFrame {
 
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(10, 172, 254, 43);
+		txtUsuario.setBounds(10, 172, 190, 25);
 		PanelInicioSesion.add(txtUsuario);
 		txtUsuario.setColumns(10);
+		
+		lblGif = new JLabel("");
+		lblGif.setBounds(221, 174, 120, 132);
+		PanelInicioSesion.add(lblGif);
+		lblGif.setIcon(new ImageIcon("imagenes/Hamburgesa.gif"));
 		
 		lblFotoFondo = new JLabel("");
 		lblFotoFondo.setBounds(0, 0, 694, 550);
 		PanelInicioSesion.add(lblFotoFondo);
-		lblFotoFondo.setIcon(new ImageIcon("imagenes/fondo.png")); // así se pone una imagen en un JLabel
+		lblFotoFondo.setIcon(new ImageIcon("imagenes/fondoIS.png")); // así se pone una imagen en un JLabel
 		
 		
 
