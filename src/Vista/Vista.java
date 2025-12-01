@@ -129,8 +129,6 @@ public class Vista extends JFrame {
 		PanelInicioSesion.add(lblFondoCuenta);
 		lblFondoCuenta.setIcon(new ImageIcon("imagenes/qqq.png"));
 		
-
-
 		
 		txtUsuario = new JTextField();
 		txtUsuario.setBounds(10, 172, 190, 25);
@@ -140,7 +138,7 @@ public class Vista extends JFrame {
 		lblGif = new JLabel("");
 		lblGif.setBounds(221, 174, 120, 132);
 		PanelInicioSesion.add(lblGif);
-		lblGif.setIcon(new ImageIcon("imagenes/Hamburgesa.gif"));
+		lblGif.setIcon(new ImageIcon("imagenes/gifburgercolor.gif"));
 		
 		lblFotoFondo = new JLabel("");
 		lblFotoFondo.setBounds(0, 0, 694, 550);
