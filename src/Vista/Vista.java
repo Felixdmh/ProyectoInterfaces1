@@ -215,7 +215,7 @@ public class Vista extends JFrame {
 	    });
 
 
-	/*       // PANEL DEL MENÚ PRINCIPAL
+	/*      // PANEL DEL MENÚ PRINCIPAL
         PanelMenuPrincipal = new JPanel();
         PanelMenuPrincipal.setBounds(0, 0, 400, 584);
         contentPane.add(PanelMenuPrincipal);
