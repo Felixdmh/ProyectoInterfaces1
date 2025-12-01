@@ -78,6 +78,64 @@ public class Controlador {
     	        vista.PanelInicioSesion.setVisible(true);
     	    }
     	});
+    	
+    		//boton administrador
+    		vista.btnAdmin.addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+	        		String nombre = vista.txtUsuario.getText().trim();
+	                String contraseña = new String(vista.passwordField.getPassword()).trim();
+	
+	                if (nombre.isEmpty()) {
+	                    JOptionPane.showMessageDialog(vista, "Ingrese el nombre de usuario");
+	                    return;
+	                }
+	
+	                if (contraseña.isEmpty()) {
+	                    JOptionPane.showMessageDialog(vista, "Ingrese la contraseña");
+	                    return;
+	                }
+	
+	                boolean encontrado = false;
+	                for (Usuarios u : listaUsuarios) {
+	                    if (u.getNombre().equalsIgnoreCase(nombre) && u.getContraseña().equals(contraseña)) {
+	                        encontrado = true;
+	                        break;
+	                    }
+	                }
+	                if(encontrado) {
+	                	// Solicitar código
+	            	    String codigo = JOptionPane.showInputDialog(
+	            	            vista,
+	            	            "Ingrese el código de administrador:",
+	            	            "Verificación",
+	            	            JOptionPane.QUESTION_MESSAGE
+	            	    );
+	
+	            	    // Si cancela o cierra ventana
+	            	    if (codigo == null) {
+	            	        return;
+	            	    }
+	
+	            	    // Validación
+	            	    if (codigo.equals("123")) {
+	
+	            	        // Código correcto → entrar al menú
+	            	        JOptionPane.showMessageDialog(vista, "Acceso concedido.");
+	
+	            	        vista.PanelInicioSesion.setVisible(false);
+	            	        vista.PanelMenuPrincipal.setVisible(true);
+	
+	            	    } else {
+	            	        // Código incorrecto
+	            	        JOptionPane.showMessageDialog(vista, "Código incorrecto. Acceso denegado.");
+	            	    }
+	            	}
+	                
+	                	
+	                }
+
+        		 
+        });
 
 
         // ------------ LISTENER INICIO SESIÓN ------------
