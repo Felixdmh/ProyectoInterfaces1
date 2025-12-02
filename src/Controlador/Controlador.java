@@ -2,6 +2,9 @@ package Controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JOptionPane;
 import Modelo.Usuarios;
 import Vista.Vista;
@@ -11,6 +14,7 @@ public class Controlador {
 
     private Vista vista;
     private ArrayList<Usuarios> listaUsuarios;
+    static String nombre;
 
     public Controlador(Vista vista) {
         this.vista = vista;
@@ -39,7 +43,7 @@ public class Controlador {
     	    @Override
     	    public void actionPerformed(ActionEvent e) {
 
-    	        String nombre = vista.textNombre.getText().trim();
+    	        nombre = vista.textNombre.getText().trim();
     	        String correo = vista.textCorreo.getText().trim();
     	        String contrasena = vista.textContrasena.getText().trim();
     	        String repetirContrasena = vista.textRepetirContrasena.getText().trim();
@@ -82,7 +86,7 @@ public class Controlador {
     		//boton administrador
     		vista.btnAdmin.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
-	        		String nombre = vista.txtUsuario.getText().trim();
+    				nombre = vista.txtUsuario.getText().trim();
 	                String contraseña = new String(vista.passwordField.getPassword()).trim();
 	
 	                if (nombre.isEmpty()) {
@@ -168,7 +172,7 @@ public class Controlador {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String nombre = vista.txtUsuario.getText().trim();
+                nombre = vista.txtUsuario.getText().trim();
                 String contraseña = new String(vista.passwordField.getPassword()).trim();
 
                 if (nombre.isEmpty()) {
@@ -209,6 +213,33 @@ public class Controlador {
         vista.btnReg.addActionListener(e -> {
             JOptionPane.showMessageDialog(vista, "Aquí iría el registro");
         });
+        
+        
+        // Listener para ir a Mi Perfil
+        vista.foticoperfil.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		vista.MiPerfil.setVisible(true);
+        		vista.PanelMenuPrincipal.setVisible(false);
+        		
+        		vista.lblNombredeBienvenida.setText(nombre);
+        	}
+        });
+        
+        //Boton para volver al menu principal desde mi perfil
+        vista.btnVolverMiPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.MiPerfil.setVisible(false);
+				vista.PanelMenuPrincipal.setVisible(true);
+			}
+		});
+        
+        
+        
+        
+        
+        
+        
     }
 }
 
