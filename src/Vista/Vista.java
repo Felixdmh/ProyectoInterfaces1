@@ -58,6 +58,7 @@ public class Vista extends JFrame {
     public JTextField textIng2;
     public JLabel lblGluten;
     public JCheckBox CbGluten;
+    public JLabel lblNewLabel;
     
 
     public static void main(String[] args) {
@@ -145,6 +146,10 @@ public class Vista extends JFrame {
         CbGluten = new JCheckBox("");
         CbGluten.setBounds(30, 375, 47, 42);
         PanelAnadirProd.add(CbGluten);
+        
+        lblNewLabel = new JLabel("New label");
+        lblNewLabel.setBounds(228, 189, 45, 13);
+        PanelAnadirProd.add(lblNewLabel);
         PanelAdmin.setBounds(0, 0, 386, 545);
         contentPane.add(PanelAdmin);
         PanelAdmin.setLayout(null);
