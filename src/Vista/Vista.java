@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Dimension;
 
 public class Vista extends JFrame {
 
@@ -39,6 +40,24 @@ public class Vista extends JFrame {
     
     // Componentes Registro
     public JButton btnValidar;
+    public JPanel PanelAdmin;
+    public JButton btnEliminarProd;
+    public JButton btnModificarProd;
+    public JButton btnAnadirProd;
+    public JPanel PanelAnadirProd;
+    public JLabel lblAnadirProd;
+    public JLabel lblAdministradores;
+    public JLabel lblNombreProd;
+    public JTextField textNombreProd;
+    public JLabel lblIdProd;
+    public JTextField textIdProd;
+    public JLabel lblAdministradores2;
+    public JLabel lblIng1;
+    public JTextField textIng1;
+    public JLabel lblIng2;
+    public JTextField textIng2;
+    public JLabel lblGluten;
+    public JCheckBox CbGluten;
     
 
     public static void main(String[] args) {
@@ -61,78 +80,166 @@ public class Vista extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-
-        // ------------------- PANEL INICIO SESIÓN -------------------
-        PanelInicioSesion = new JPanel();
-        PanelInicioSesion.setBorder(new EmptyBorder(0, 0, 0, 0));
-        PanelInicioSesion.setBounds(0, 0, 400, 584);
-        PanelInicioSesion.setLayout(null);
-        contentPane.add(PanelInicioSesion);
-
-        lblUsuarioFoto = new JLabel(new ImageIcon("imagenes/logo2.png"));
-        lblUsuarioFoto.setBounds(119, 119, 45, 43);
-        PanelInicioSesion.add(lblUsuarioFoto);
-
-        lblCuenta = new JLabel("Cuenta");
-        lblCuenta.setFont(new Font("Tahoma", Font.BOLD, 30));
-        lblCuenta.setHorizontalAlignment(SwingConstants.CENTER);
-        lblCuenta.setForeground(Color.WHITE);
-        lblCuenta.setBounds(119, 10, 145, 62);
-        PanelInicioSesion.add(lblCuenta);
-
-        lblUsuario = new JLabel("Usuario");
-        lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 25));
-        lblUsuario.setBounds(10, 131, 208, 31);
-        PanelInicioSesion.add(lblUsuario);
-
-        txtUsuario = new JTextField();
-        txtUsuario.setBounds(10, 172, 190, 25);
-        PanelInicioSesion.add(txtUsuario);
-
-        lblContraseña = new JLabel("Contraseña");
-        lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 25));
-        lblContraseña.setBounds(10, 258, 208, 31);
-        PanelInicioSesion.add(lblContraseña);
-
-        passwordField = new JPasswordField();
-        passwordField.setBounds(10, 299, 190, 25);
-        PanelInicioSesion.add(passwordField);
-
-        lblContraseñaFoto = new JLabel(new ImageIcon("imagenes/candado.png"));
-        lblContraseñaFoto.setBounds(160, 246, 45, 43);
-        PanelInicioSesion.add(lblContraseñaFoto);
-
-        lblFondoCuenta = new JLabel(new ImageIcon("imagenes/qqq.png"));
-        lblFondoCuenta.setBounds(42, 20, 295, 48);
-        PanelInicioSesion.add(lblFondoCuenta);
-
-        lblGif = new JLabel(new ImageIcon("imagenes/gifburgercolor.gif"));
-        lblGif.setBounds(221, 174, 120, 132);
-        PanelInicioSesion.add(lblGif);
-
-        btnReg = new JButton("Registrarse");
-        btnReg.setFont(new Font("Tahoma", Font.BOLD, 20));
-        btnReg.setBackground(new Color(72, 61, 139));
-        btnReg.setForeground(Color.WHITE);
-        btnReg.setBorder(new LineBorder(Color.BLACK, 5));
-        btnReg.setBounds(83, 469, 220, 54);
-        PanelInicioSesion.add(btnReg);
-
-        btnInSes = new JButton("Iniciar Sesión");
-        btnInSes.setFont(new Font("Tahoma", Font.BOLD, 20));
-        btnInSes.setBackground(new Color(72, 61, 139));
-        btnInSes.setForeground(Color.WHITE);
-        btnInSes.setBorder(new LineBorder(Color.BLACK, 5));
-        btnInSes.setBounds(83, 405, 220, 54);
-        PanelInicioSesion.add(btnInSes);
         
-        btnAdmin = new JButton("");
-        btnAdmin.setBounds(318, 25, 46, 47);
-        PanelInicioSesion.add(btnAdmin);
+        PanelAdmin = new JPanel();
+        PanelAdmin.setVisible(false);
         
-        lblFotoFondo = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-        lblFotoFondo.setBounds(0, 0, 390, 550);
-        PanelInicioSesion.add(lblFotoFondo);
+        
+        //----------- Panel Añadir Producto ----------//
+        PanelAnadirProd = new JPanel();
+        PanelAnadirProd.setVisible(false);
+        PanelAnadirProd.setLayout(null);
+        PanelAnadirProd.setBounds(0, 0, 386, 547);
+        contentPane.add(PanelAnadirProd);
+        
+        lblAnadirProd = new JLabel("AÑADIR PRODUCTO");
+        lblAnadirProd.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblAnadirProd.setBounds(85, 77, 233, 42);
+        PanelAnadirProd.add(lblAnadirProd);
+        
+        lblAdministradores = new JLabel("SOLO ADMINISTRADORES");
+        lblAdministradores.setFont(new Font("Tahoma", Font.BOLD, 25));
+        lblAdministradores.setBounds(30, 10, 330, 57);
+        PanelAnadirProd.add(lblAdministradores);
+        
+        lblNombreProd = new JLabel("NOMBRE:");
+        lblNombreProd.setBounds(32, 137, 45, 13);
+        PanelAnadirProd.add(lblNombreProd);
+        
+        textNombreProd = new JTextField();
+        textNombreProd.setBounds(30, 160, 96, 19);
+        PanelAnadirProd.add(textNombreProd);
+        textNombreProd.setColumns(10);
+        
+        lblIdProd = new JLabel("ID PRODUCTO");
+        lblIdProd.setBounds(30, 189, 113, 13);
+        PanelAnadirProd.add(lblIdProd);
+        
+        textIdProd = new JTextField();
+        textIdProd.setBounds(30, 212, 96, 19);
+        PanelAnadirProd.add(textIdProd);
+        textIdProd.setColumns(10);
+        
+        lblIng1 = new JLabel("INGREDIENTE 1");
+        lblIng1.setBounds(30, 238, 113, 13);
+        PanelAnadirProd.add(lblIng1);
+        
+        textIng1 = new JTextField();
+        textIng1.setBounds(30, 261, 96, 19);
+        PanelAnadirProd.add(textIng1);
+        textIng1.setColumns(10);
+        
+        lblIng2 = new JLabel("INGREDIENTE 2");
+        lblIng2.setBounds(30, 296, 113, 13);
+        PanelAnadirProd.add(lblIng2);
+        
+        textIng2 = new JTextField();
+        textIng2.setBounds(30, 319, 96, 19);
+        PanelAnadirProd.add(textIng2);
+        textIng2.setColumns(10);
+        
+        lblGluten = new JLabel("Gluten");
+        lblGluten.setBounds(30, 356, 45, 13);
+        PanelAnadirProd.add(lblGluten);
+        
+        CbGluten = new JCheckBox("");
+        CbGluten.setBounds(30, 375, 47, 42);
+        PanelAnadirProd.add(CbGluten);
+        PanelAdmin.setBounds(0, 0, 386, 545);
+        contentPane.add(PanelAdmin);
+        PanelAdmin.setLayout(null);
+        
+        lblAdministradores2 = new JLabel("SOLO ADMINISTRADORES");
+        lblAdministradores2.setFont(new Font("Tahoma", Font.BOLD, 25));
+        lblAdministradores2.setBounds(23, 35, 330, 57);
+        PanelAdmin.add(lblAdministradores2);
+        
+        btnEliminarProd = new JButton("ELIMINAR PRODUCTO");
+        btnEliminarProd.setBounds(50, 393, 285, 101);
+        PanelAdmin.add(btnEliminarProd);
+        
+        btnModificarProd = new JButton("MODIFICAR PRODUCTO");
+        btnModificarProd.setBounds(50, 270, 285, 101);
+        PanelAdmin.add(btnModificarProd);
+        
+        btnAnadirProd = new JButton("AÑADIR PRODUCTO");
+        btnAnadirProd.setBounds(50, 141, 285, 101);
+        PanelAdmin.add(btnAnadirProd);
+        
+                // ------------------- PANEL INICIO SESIÓN -------------------
+                PanelInicioSesion = new JPanel();
+                PanelInicioSesion.setBorder(new EmptyBorder(0, 0, 0, 0));
+                PanelInicioSesion.setBounds(0, 0, 400, 584);
+                PanelInicioSesion.setLayout(null);
+                contentPane.add(PanelInicioSesion);
+                
+                lblUsuarioFoto = new JLabel(new ImageIcon("imagenes/logo2.png"));
+                lblUsuarioFoto.setBounds(119, 119, 45, 43);
+                PanelInicioSesion.add(lblUsuarioFoto);
+                        
+                lblCuenta = new JLabel("Cuenta");
+                lblCuenta.setFont(new Font("Tahoma", Font.BOLD, 30));
+                lblCuenta.setHorizontalAlignment(SwingConstants.CENTER);
+                lblCuenta.setForeground(Color.WHITE);
+                lblCuenta.setBounds(119, 10, 145, 62);
+                PanelInicioSesion.add(lblCuenta);
+                                
+                lblUsuario = new JLabel("Usuario");
+                lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 25));
+                lblUsuario.setBounds(10, 131, 208, 31);
+                PanelInicioSesion.add(lblUsuario);
+                                        
+                txtUsuario = new JTextField();
+                txtUsuario.setBounds(10, 172, 190, 25);
+                PanelInicioSesion.add(txtUsuario);
+                                                
+                lblContraseña = new JLabel("Contraseña");
+            	lblContraseña.setFont(new Font("Tahoma", Font.BOLD, 25));
+              	lblContraseña.setBounds(10, 258, 208, 31);
+             	PanelInicioSesion.add(lblContraseña);
+                                                        
+              	passwordField = new JPasswordField();
+             	passwordField.setBounds(10, 299, 190, 25);
+               	PanelInicioSesion.add(passwordField);
+                                                                
+                lblContraseñaFoto = new JLabel(new ImageIcon("imagenes/candado.png"));
+               	lblContraseñaFoto.setBounds(160, 246, 45, 43);
+               	PanelInicioSesion.add(lblContraseñaFoto);
+                                                                        
+              	lblFondoCuenta = new JLabel(new ImageIcon("imagenes/qqq.png"));
+              	lblFondoCuenta.setBounds(42, 20, 295, 48);
+              	PanelInicioSesion.add(lblFondoCuenta);
+                                                                                
+              	lblGif = new JLabel(new ImageIcon("imagenes/gifburgercolor.gif"));
+                lblGif.setBounds(221, 174, 120, 132);
+                PanelInicioSesion.add(lblGif);
+                                                                                        
+                btnReg = new JButton("Registrarse");
+            	btnReg.setFont(new Font("Tahoma", Font.BOLD, 20));
+               	btnReg.setBackground(new Color(72, 61, 139));
+                btnReg.setForeground(Color.WHITE);
+               	btnReg.setBorder(new LineBorder(Color.BLACK, 5));
+	        	btnReg.setBounds(83, 469, 220, 54);
+	        	PanelInicioSesion.add(btnReg);
+                                                                                                
+                btnInSes = new JButton("Iniciar Sesión");
+                btnInSes.setFont(new Font("Tahoma", Font.BOLD, 20));
+            	btnInSes.setBackground(new Color(72, 61, 139));
+            	btnInSes.setForeground(Color.WHITE);
+             	btnInSes.setBorder(new LineBorder(Color.BLACK, 5));
+	            btnInSes.setBounds(83, 405, 220, 54);
+	          	PanelInicioSesion.add(btnInSes);
+                                                                                                        
+                btnAdmin = new JButton("");
+                btnAdmin.setBounds(318, 25, 46, 47);
+               	PanelInicioSesion.add(btnAdmin);
+                                                                                                        
+                lblFotoFondo = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+              	lblFotoFondo.setBounds(0, 0, 390, 550);
+                PanelInicioSesion.add(lblFotoFondo);
+                                                                                                        
+        // ------------------- VISIBILIDAD INICIAL -------------------
+                PanelInicioSesion.setVisible(true);
 
         // ------------------- PANEL MENÚ PRINCIPAL -------------------
         PanelMenuPrincipal = new JPanel();
@@ -206,9 +313,6 @@ public class Vista extends JFrame {
         JLabel lblFotoFondo2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
         lblFotoFondo2.setBounds(0, 0, 390, 550);
         PanelRegistro.add(lblFotoFondo2);
-
-        // ------------------- VISIBILIDAD INICIAL -------------------
-        PanelInicioSesion.setVisible(true);
         PanelMenuPrincipal.setVisible(false);
     }
 }

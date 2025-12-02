@@ -123,7 +123,7 @@ public class Controlador {
 	            	        JOptionPane.showMessageDialog(vista, "Acceso concedido.");
 	
 	            	        vista.PanelInicioSesion.setVisible(false);
-	            	        vista.PanelMenuPrincipal.setVisible(true);
+	            	        vista.PanelAdmin.setVisible(true);
 	
 	            	    } else {
 	            	        // Código incorrecto
@@ -136,7 +136,31 @@ public class Controlador {
 
         		 
         });
-
+    		//Panel de admins
+    		//boton añadir producto
+    		 vista.btnAnadirProd.addActionListener(new ActionListener() {
+    	        	public void actionPerformed(ActionEvent e) {
+    	        		
+    	        		vista.PanelAdmin.setVisible(false);
+    	        		vista.PanelAnadirProd.setVisible(true);
+    	        		
+    	        		
+    	        	}
+    	        });
+    		 vista.btnModificarProd.addActionListener(new ActionListener() {
+    	        	public void actionPerformed(ActionEvent e) {
+    	        		
+    	        		
+    	        	}
+    	        });
+    		 
+    		 vista.btnEliminarProd.addActionListener(new ActionListener() {
+    	        	public void actionPerformed(ActionEvent e) {
+    	        		
+    	        		
+    	        	}
+    	        });
+    		
 
         // ------------ LISTENER INICIO SESIÓN ------------
         vista.btnInSes.addActionListener(new ActionListener() {
