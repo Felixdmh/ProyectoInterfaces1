@@ -202,6 +202,7 @@ public class Controlador {
                     // CAMBIO DE PANEL
                     vista.PanelInicioSesion.setVisible(false);
                     vista.PanelMenuPrincipal.setVisible(true);
+                    vista.Contacto.setVisible(false);
 
                 } else {
                     JOptionPane.showMessageDialog(vista, "Usuario inexistente o contraseña incorrecta");
@@ -234,10 +235,104 @@ public class Controlador {
 			}
 		});
         
+        //BOTON PARA IR A CONTACTO
+        vista.btnContacto.addActionListener(new ActionListener() {
+        				public void actionPerformed(ActionEvent e) {
+        					vista.MiPerfil.setVisible(false);
+							vista.Contacto.setVisible(true);
+        				}
+        });
+        
+        
+        //Boton para volver al perfil desde contacto
+        vista.btnVolverContacto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.Contacto.setVisible(false);
+				vista.MiPerfil.setVisible(true);
+			}
+		});
         
         
         
         
+        
+        
+        
+        
+        //BOTON PARA VOLVER AL INICIO SESIÓN DESDE MENU PRINCIPAL
+        vista.foticocasa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int opcion = JOptionPane.showConfirmDialog(
+                        vista,
+                        "¿Quieres cerrar sesión?", // texto del cuadro
+                        "", // titulo del cuadro 
+                        JOptionPane.YES_NO_OPTION // opciones de botones
+                );
+
+                if(opcion == JOptionPane.YES_OPTION) { // si la opcion es sí nos saca al inicio de sesión
+                    vista.PanelMenuPrincipal.setVisible(false);
+                    vista.PanelInicioSesion.setVisible(true);
+                }
+            }
+        });
+
+        
+        // BOTON PARA IR A COMPRAR DESDE MENU PRINCIPAL
+        vista.foticocarro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				vista.PanelMenuPrincipal.setVisible(false);
+				vista.DomicilioOLocal.setVisible(true);
+				vista.Contacto.setVisible(false);
+			}
+		});
+        
+        
+        // BOTON PARA IR AL PERFIL DESDE COMPRAR
+        vista.foticoperfilComprar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				vista.DomicilioOLocal.setVisible(false);
+				vista.MiPerfil.setVisible(true);
+				
+			}
+		});
+        
+        
+        
+        // BOTON PARA IR AL PERFIL DESDE COMPRAR
+        vista.btnPideYa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				vista.PanelMenuPrincipal.setVisible(false);
+				vista.DomicilioOLocal.setVisible(true);
+				
+			}
+		});
+        
+        
+        
+      //BOTON PARA VOLVER AL INICIO SESIÓN DESDE MENU PRINCIPAL
+        vista.foticocasaComprar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                int opcion = JOptionPane.showConfirmDialog(
+                        vista,
+                        "¿Quieres cerrar sesión?", // texto del cuadro
+                        "", // titulo del cuadro 
+                        JOptionPane.YES_NO_OPTION // opciones de botones
+                );
+
+                if(opcion == JOptionPane.YES_OPTION) { // si la opcion es sí nos saca al inicio de sesión
+                	vista.Contacto.setVisible(false);
+                    vista.PanelMenuPrincipal.setVisible(false);
+                    vista.PanelInicioSesion.setVisible(true);
+                }
+            }
+        });
         
         
     }
