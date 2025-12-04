@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+
+import Modelo.Comida;
 import Modelo.Usuarios;
 import Vista.Vista;
 import java.util.ArrayList;
@@ -19,10 +22,38 @@ public class Controlador {
     public Controlador(Vista vista) {
         this.vista = vista;
         listaUsuarios = new ArrayList<>();
+        JComboBox<Comida> comboBox = new JComboBox<>();
 
         // Usuarios de prueba
         listaUsuarios.add(new Usuarios("david", "david"));
         listaUsuarios.add(new Usuarios("felix", "felix"));
+        
+        
+        Comida c1 = new Comida(1, "Pizza", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
+		Comida c2 = new Comida(2, "Hamburguesa", 2, 5.49, "Integral", "Res", "Cheddar", "Tocino");
+		Comida c3 = new Comida(3, "Sushi",	1, 12.99, "Centeno", "Atún", "Requeson", "Aguacate");
+		Comida c4 = new Comida(4, "Ensalada", 2, 6.99, "Sin pan", "Ninguna", "Feta", "Nueces");
+		Comida c5 = new Comida(5, "Taco", 1, 4.99, "Maíz", "Cerdo", "Queso fresco", "Cilantro");
+		Comida c6 = new Comida(6, "Pasta", 2, 7.99, "Sin pan", "Pollo", "Parmesano", "Champiñones");
+		Comida c7 = new Comida(7, "Wrap", 1, 6.49, "Tortilla", "Pavo", "Suizo", "Lechuga");
+		Comida c8 = new Comida(8, "Sopa", 2, 5.99, "Sin pan", "Ninguna", "Ninguno", "Crutones");
+		Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
+		Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
+		
+
+		
+		vista.CbRoja.addItem(c1);
+		vista.CbVerde.addItem(c2);
+		vista.CbRoja.addItem(c3);
+		vista.CbVerde.addItem(c4);
+		vista.CbRoja.addItem(c5);
+		vista.CbVerde.addItem(c6);
+		vista.CbRoja.addItem(c7);
+		vista.CbVerde.addItem(c8);
+		vista.CbRoja.addItem(c9);
+		vista.CbRoja.addItem(c10);
+		
+        
 
         inicializarListeners();
     }
@@ -332,6 +363,67 @@ public class Controlador {
                     vista.PanelInicioSesion.setVisible(true);
                 }
             }
+        });
+        
+        //BOTON PARA IR DESDE PEDIDOOLOCAL O LA SECCION PEDIR EN EL LOCAL
+        vista.btnPedirEnLocal.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		vista.DomicilioOLocal.setVisible(false);
+				vista.PanelLocal.setVisible(true);
+				
+        	}
+        });
+        
+        vista.btnMostrar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		Comida comidaRoja = (Comida) vista.CbRoja.getSelectedItem();
+				Comida comidaVerde = (Comida) vista.CbVerde.getSelectedItem();
+				
+				int id;
+				String nombre;
+				double precio;
+				String pan;
+				String carne;
+				String queso;
+				String extra;
+				
+				
+				if(comidaRoja != null) {
+					id = comidaRoja.getIdComida();
+					nombre = comidaRoja.getNombre();
+					precio = comidaRoja.getPrecio();
+					pan = comidaRoja.getPan();
+					carne = comidaRoja.getCarne();
+					queso = comidaRoja.getQueso();
+					extra = comidaRoja.getExtra();
+					
+					vista.lblCarneR.setText(carne);
+					vista.lblExtraR.setText(extra);
+					vista.lblPanR.setText(pan);
+					vista.lblQuesoR.setText(queso);
+					
+					
+					
+				}
+				if(comidaVerde != null) {
+					id = comidaVerde.getIdComida();
+					nombre = comidaVerde.getNombre();
+					precio = comidaVerde.getPrecio();
+					pan = comidaVerde.getPan();
+					carne = comidaVerde.getCarne();
+					queso = comidaVerde.getQueso();
+					extra = comidaVerde.getExtra();
+					
+					vista.lblCarneR.setText(carne);
+					vista.lblExtraR.setText(extra);
+					vista.lblPanR.setText(pan);
+					vista.lblQuesoR.setText(queso);
+					
+					
+				}
+        	}
         });
         
         

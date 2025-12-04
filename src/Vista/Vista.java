@@ -113,7 +113,7 @@ public class Vista extends JFrame {
     public JLabel lblFotoFondoLocal;
     public JLabel lblBurgerRoja;
     public JComboBox CbVerde;
-    public JComboBox comboBox;
+    public JComboBox CbRoja;
     public JLabel lblBurgerVerde;
     public JLabel lblEspec;
     public JLabel lblPan;
@@ -125,6 +125,10 @@ public class Vista extends JFrame {
     public JLabel lblCarneR;
     public JLabel lblQuesoR;
     public JLabel lblExtraR;
+    
+    //componentes panel añadir producto
+    public JLabel lblTablon;
+    public JButton btnMostrar;
     
 
     public static void main(String[] args) {
@@ -155,17 +159,25 @@ public class Vista extends JFrame {
         //----------- Panel Añadir Producto ----------//
         PanelAnadirProd = new JPanel();
         PanelAnadirProd.setVisible(false);
+                                                                                        lblEspec = new JLabel("ESPECIFICACIONES");
+                                                                                        lblEspec.setBounds(91, 288, 204, 29);
+                                                                                        
+                                                                                                                                        
+                                                                                        // PANEL PEDIR COMPRAR                                                 
+                                                                                        DomicilioOLocal = new JPanel();
+                                                                                        DomicilioOLocal.setVisible(false);
                                                                                         
                                                                                         PanelLocal = new JPanel();
+                                                                                        PanelLocal.setVisible(false);
                                                                                         PanelLocal.setBounds(0, 0, 386, 547);
                                                                                         contentPane.add(PanelLocal);
                                                                                         PanelLocal.setLayout(null);
                                                                                         
-                                                                                        lblBurgerVerde = new JLabel("");
+                                                                                        lblBurgerVerde = new JLabel(new ImageIcon("imagenes/BurgerV.png"));
                                                                                         lblBurgerVerde.setBounds(246, 110, 93, 74);
                                                                                         PanelLocal.add(lblBurgerVerde);
                                                                                         
-                                                                                        lblBurgerRoja = new JLabel(new ImageIcon("imagenes/BurgerVerde.png"));
+                                                                                        lblBurgerRoja = new JLabel(new ImageIcon("imagenes/BurgerR.png"));
                                                                                         lblBurgerRoja.setBounds(43, 110, 81, 74);
                                                                                         PanelLocal.add(lblBurgerRoja);
                                                                                         
@@ -173,53 +185,102 @@ public class Vista extends JFrame {
                                                                                         CbVerde.setBounds(246, 194, 93, 21);
                                                                                         PanelLocal.add(CbVerde);
                                                                                         
-                                                                                        comboBox = new JComboBox();
-                                                                                        comboBox.setBounds(43, 194, 93, 21);
-                                                                                        PanelLocal.add(comboBox);
+                                                                                        CbRoja = new JComboBox();
+                                                                                        CbRoja.setBounds(43, 194, 93, 21);
+                                                                                        PanelLocal.add(CbRoja);
                                                                                         
-                                                                                   PanelLocal.add(lblEspec);
-                                                                                    lblEspec = new JLabel("ESPECIFICACIONES");
-                                                                                        lblEspec.setBounds(91, 288, 204, 29);
-                                                                                                 
-                                                                                        lblPan = new JLabel("PAN:");
-                                                                                        lblPan.setBounds(55, 342, 45, 13);
-                                                                                        PanelLocal.add(lblPan);
+                                                                                        PanelLocal.add(CbVerde);
                                                                                         
-                                                                                        lblCarne = new JLabel("CARNE:");
-                                                                                        lblCarne.setBounds(55, 375, 45, 13);
-                                                                                        PanelLocal.add(lblCarne);
+                                                                                                                                                                        lblPan = new JLabel("PAN:");
+                                                                                                                                                                        lblPan.setBounds(55, 342, 45, 13);
+                                                                                                                                                                        PanelLocal.add(lblPan);
+                                                                                                                                                                        
+                                                                                                                                                                        lblCarne = new JLabel("CARNE:");
+                                                                                                                                                                        lblCarne.setBounds(55, 375, 45, 13);
+                                                                                                                                                                        PanelLocal.add(lblCarne);
+                                                                                                                                                                        
+                                                                                                                                                                        lblQueso = new JLabel("QUESO:");
+                                                                                                                                                                        lblQueso.setBounds(55, 413, 45, 13);
+                                                                                                                                                                        PanelLocal.add(lblQueso);
+                                                                                                                                                                        
+                                                                                                                                                                        lblExtras = new JLabel("EXTRAS:");
+                                                                                                                                                                        lblExtras.setBounds(55, 449, 45, 13);
+                                                                                                                                                                        PanelLocal.add(lblExtras);
+                                                                                                                                                                        
+                                                                                                                                                                        lblEligeTP = new JLabel("ELIGE TUS \r\nPRODUCTOS");
+                                                                                                                                                                        lblEligeTP.setFont(new Font("Tahoma", Font.BOLD, 25));
+                                                                                                                                                                        lblEligeTP.setBounds(50, 37, 295, 63);
+                                                                                                                                                                        PanelLocal.add(lblEligeTP);
+                                                                                                                                                                        
+                                                                                                                                                                        lblPanR = new JLabel("");
+                                                                                                                                                                        lblPanR.setBounds(123, 342, 172, 13);
+                                                                                                                                                                        PanelLocal.add(lblPanR);
+                                                                                                                                                                        
+                                                                                                                                                                        lblCarneR = new JLabel("");
+                                                                                                                                                                        lblCarneR.setBounds(122, 375, 173, 13);
+                                                                                                                                                                        PanelLocal.add(lblCarneR);
+                                                                                                                                                                        
+                                                                                                                                                                        lblQuesoR = new JLabel("");
+                                                                                                                                                                        lblQuesoR.setBounds(122, 413, 173, 13);
+                                                                                                                                                                        PanelLocal.add(lblQuesoR);
+                                                                                                                                                                        
+                                                                                                                                                                        lblExtraR = new JLabel("");
+                                                                                                                                                                        lblExtraR.setBounds(123, 449, 172, 13);
+                                                                                                                                                                        PanelLocal.add(lblExtraR);
+                                                                                                                                                                        
+                                                                                                                                                                        lblTablon = new JLabel(new ImageIcon("imagenes/TablonFondo.png"));
+                                                                                                                                                                        lblTablon.setBounds(31, 314, 314, 191);
+                                                                                                                                                                        PanelLocal.add(lblTablon);
+                                                                                                                                                                        
+                                                                                                                                                                        btnMostrar = new JButton("Mostrar");
+                                                                                                                                                                        btnMostrar.setBounds(147, 225, 89, 23);
+                                                                                                                                                                        PanelLocal.add(btnMostrar);
+                                                                                                                                                                        
+                                                                                                                                                                        lblFotoFondoLocal = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+                                                                                                                                                                        lblFotoFondoLocal.setBounds(0, 0, 386, 547);
+                                                                                                                                                                        PanelLocal.add(lblFotoFondoLocal);
+                                                                                        DomicilioOLocal.setBounds(0, 0, 400, 584);
+                                                                                        contentPane.add(DomicilioOLocal);
+                                                                                        DomicilioOLocal.setLayout(null);
                                                                                         
-                                                                                        lblQueso = new JLabel("QUESO:");
-                                                                                        lblQueso.setBounds(55, 413, 45, 13);
-                                                                                        PanelLocal.add(lblQueso);
+                                                                                        btnPedirEnLocal = new JButton("PEDIR AQUÍ");
+                                                                                        btnPedirEnLocal.setFont(new Font("Tahoma", Font.PLAIN, 25));
+                                                                                        btnPedirEnLocal.setBounds(39, 317, 308, 60);
+                                                                                        DomicilioOLocal.add(btnPedirEnLocal);
                                                                                         
-                                                                                        lblExtras = new JLabel("EXTRAS:");
-                                                                                        lblExtras.setBounds(55, 449, 45, 13);
-                                                                                        PanelLocal.add(lblExtras);
+                                                                                        btnPedirDomicilio = new JButton("PEDIR A DOMICILIO");
                                                                                         
-                                                                                        lblEligeTP = new JLabel("ELIGE TUS PRODUCTOS");
-                                                                                        lblEligeTP.setBounds(55, 63, 272, 37);
-                                                                                        PanelLocal.add(lblEligeTP);
+                                                                                        btnPedirDomicilio.setFont(new Font("Tahoma", Font.PLAIN, 25));
+                                                                                        btnPedirDomicilio.setBounds(40, 160, 308, 60);
+                                                                                        DomicilioOLocal.add(btnPedirDomicilio);
                                                                                         
-                                                                                        lblPanR = new JLabel("");
-                                                                                        lblPanR.setBounds(123, 342, 172, 13);
-                                                                                        PanelLocal.add(lblPanR);
+                                                                                        logoPequeComprar = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
+                                                                                        logoPequeComprar.setBounds(153, 1, 96, 79);
+                                                                                        DomicilioOLocal.add(logoPequeComprar);
                                                                                         
-                                                                                        lblCarneR = new JLabel("");
-                                                                                        lblCarneR.setBounds(122, 375, 173, 13);
-                                                                                        PanelLocal.add(lblCarneR);
+                                                                                        foticocasaComprar = new JLabel(new ImageIcon("imagenes/foticocasa.png"));
+                                                                                        foticocasaComprar.setBounds(10, 505, 35, 35);
+                                                                                        DomicilioOLocal.add(foticocasaComprar);
                                                                                         
-                                                                                        lblQuesoR = new JLabel("");
-                                                                                        lblQuesoR.setBounds(122, 413, 173, 13);
-                                                                                        PanelLocal.add(lblQuesoR);
+                                                                                        foticoperfilComprar = new JLabel(new ImageIcon("imagenes/foticoperfil.png"));
+                                                                                        foticoperfilComprar.setBounds(122, 505, 35, 35);
+                                                                                        DomicilioOLocal.add(foticoperfilComprar);
                                                                                         
-                                                                                        lblExtraR = new JLabel("");
-                                                                                        lblExtraR.setBounds(123, 449, 172, 13);
-                                                                                        PanelLocal.add(lblExtraR);
+                                                                                        foticodescuentoComprar = new JLabel(new ImageIcon("imagenes/foticodescuento.png"));
+                                                                                        foticodescuentoComprar.setBounds(340, 505, 35, 35);
+                                                                                        DomicilioOLocal.add(foticodescuentoComprar);
                                                                                         
-                                                                                        lblFotoFondoLocal = new JLabel("");
-                                                                                        lblFotoFondoLocal.setBounds(0, 0, 386, 547);
-                                                                                        PanelLocal.add(lblFotoFondoLocal);
+                                                                                        foticocarroComprar = new JLabel(new ImageIcon("imagenes/foticocarro.png"));
+                                                                                        foticocarroComprar.setBounds(240, 505, 35, 35);
+                                                                                        DomicilioOLocal.add(foticocarroComprar);
+                                                                                        
+                                                                                        lblTablonDeAbajoComprar = new JLabel(new ImageIcon("imagenes/tablonmaderaa.png"));
+                                                                                        lblTablonDeAbajoComprar.setBounds(0, 491, 400, 61);
+                                                                                        DomicilioOLocal.add(lblTablonDeAbajoComprar);
+                                                                                        
+                                                                                        lblFotoFondoMenuPrincipal_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+                                                                                        lblFotoFondoMenuPrincipal_1.setBounds(0, 0, 400, 584);
+                                                                                        DomicilioOLocal.add(lblFotoFondoMenuPrincipal_1);
                                                                                 
                                                                                         // ------------------- PANEL INICIO SESIÓN -------------------
                                                                                         PanelInicioSesion = new JPanel();
@@ -558,52 +619,6 @@ public class Vista extends JFrame {
                                                         lblFotoFondoContacto = new JLabel(new ImageIcon("imagenes/CONTACTO.png"));
                                                         lblFotoFondoContacto.setBounds(-10, 0, 400, 584);
                                                         Contacto.add(lblFotoFondoContacto);
-        
-                                                        
-        // PANEL PEDIR COMPRAR                                                 
-        DomicilioOLocal = new JPanel();
-        DomicilioOLocal.setVisible(false);
-        DomicilioOLocal.setBounds(0, 0, 400, 584);
-        contentPane.add(DomicilioOLocal);
-        DomicilioOLocal.setLayout(null);
-        
-        btnPedirEnLocal = new JButton("PEDIR AQUÍ");
-        btnPedirEnLocal.setFont(new Font("Tahoma", Font.PLAIN, 25));
-        btnPedirEnLocal.setBounds(39, 317, 308, 60);
-        DomicilioOLocal.add(btnPedirEnLocal);
-        
-        btnPedirDomicilio = new JButton("PEDIR A DOMICILIO");
-        btnPedirDomicilio.setFont(new Font("Tahoma", Font.PLAIN, 25));
-        btnPedirDomicilio.setBounds(40, 160, 308, 60);
-        DomicilioOLocal.add(btnPedirDomicilio);
-        
-        logoPequeComprar = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
-        logoPequeComprar.setBounds(153, 1, 96, 79);
-        DomicilioOLocal.add(logoPequeComprar);
-        
-        foticocasaComprar = new JLabel(new ImageIcon("imagenes/foticocasa.png"));
-        foticocasaComprar.setBounds(10, 505, 35, 35);
-        DomicilioOLocal.add(foticocasaComprar);
-        
-        foticoperfilComprar = new JLabel(new ImageIcon("imagenes/foticoperfil.png"));
-        foticoperfilComprar.setBounds(122, 505, 35, 35);
-        DomicilioOLocal.add(foticoperfilComprar);
-        
-        foticodescuentoComprar = new JLabel(new ImageIcon("imagenes/foticodescuento.png"));
-        foticodescuentoComprar.setBounds(340, 505, 35, 35);
-        DomicilioOLocal.add(foticodescuentoComprar);
-        
-        foticocarroComprar = new JLabel(new ImageIcon("imagenes/foticocarro.png"));
-        foticocarroComprar.setBounds(240, 505, 35, 35);
-        DomicilioOLocal.add(foticocarroComprar);
-        
-        lblTablonDeAbajoComprar = new JLabel(new ImageIcon("imagenes/tablonmaderaa.png"));
-        lblTablonDeAbajoComprar.setBounds(0, 491, 400, 61);
-        DomicilioOLocal.add(lblTablonDeAbajoComprar);
-        
-        lblFotoFondoMenuPrincipal_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-        lblFotoFondoMenuPrincipal_1.setBounds(0, 0, 400, 584);
-        DomicilioOLocal.add(lblFotoFondoMenuPrincipal_1);
         PanelAnadirProd.setLayout(null);
         PanelAnadirProd.setBounds(0, 0, 386, 547);
         contentPane.add(PanelAnadirProd);
