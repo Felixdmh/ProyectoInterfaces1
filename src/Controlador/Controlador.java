@@ -8,7 +8,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
+import Modelo.Bebida;
 import Modelo.Comida;
+import Modelo.Complemento;
+import Modelo.Patata;
 import Modelo.Usuarios;
 import Vista.Vista;
 import java.util.ArrayList;
@@ -18,11 +21,25 @@ public class Controlador {
     private Vista vista;
     private ArrayList<Usuarios> listaUsuarios;
     static String nombre;
+    
+    //Valiables necesarias para pedir
+    private int idBurger;
+    private int idBebida;
+    private int idPatata;
+    private int idComplemento;
+    private String nombreBurger;
+    private String nombreBebida;
+    private String nombrePatata;
+    private String nombreComplemento;
+    
+    
 
     public Controlador(Vista vista) {
         this.vista = vista;
         listaUsuarios = new ArrayList<>();
         JComboBox<Comida> comboBox = new JComboBox<>();
+        JComboBox<Bebida> comboBoxBebida = new JComboBox<>();
+        JComboBox<Patata> comboBoxPatata = new JComboBox<>();
 
         // Usuarios de prueba
         listaUsuarios.add(new Usuarios("david", "david"));
@@ -40,7 +57,22 @@ public class Controlador {
 		Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
 		Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
 		
-
+		
+		Bebida b1 = new Bebida(1, "Coca-Cola", 1.5);
+		Bebida b2 = new Bebida(2, "Agua", 1.0);
+		Bebida b3 = new Bebida(3, "Monster", 2.0);
+		Bebida b4 = new Bebida(4, "Cerveza", 2.5);
+		Bebida b5 = new Bebida(5, "Fanta", 1.8);
+		
+		Patata p1 = new Patata(1, "Patatas Fritas", 2.5);
+		Patata p2 = new Patata(2, "Patatas Gajo", 3.0);
+		Patata p3 = new Patata(3, "Patatas Deluxe", 4.0);
+		
+		Complemento complemento1 = new Complemento(1, "Nachos", 5.6);
+		Complemento complemento2 = new Complemento(2, "Tequenos", 4.5);
+		Complemento complemento3 = new Complemento(3, "Alitas", 3.75);
+		
+		
 		
 		vista.CbRoja.addItem(c1);
 		vista.CbVerde.addItem(c2);
@@ -52,6 +84,22 @@ public class Controlador {
 		vista.CbVerde.addItem(c8);
 		vista.CbRoja.addItem(c9);
 		vista.CbRoja.addItem(c10);
+		
+		vista.CbBebida.addItem(b1);
+		vista.CbBebida.addItem(b2);
+		vista.CbBebida.addItem(b3);
+		vista.CbBebida.addItem(b4);
+		vista.CbBebida.addItem(b5);
+		
+		vista.CbPatatas.addItem(p1);
+		vista.CbPatatas.addItem(p2);
+		vista.CbPatatas.addItem(p3);
+		
+		vista.CbComp.addItem(complemento1);
+		vista.CbComp.addItem(complemento2);
+		vista.CbComp.addItem(complemento3);
+		
+		
 		
         
 
@@ -375,56 +423,138 @@ public class Controlador {
         	}
         });
         
-        vista.btnMostrar.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		Comida comidaRoja = (Comida) vista.CbRoja.getSelectedItem();
-				Comida comidaVerde = (Comida) vista.CbVerde.getSelectedItem();
-				
-				int id;
-				String nombre;
-				double precio;
-				String pan;
-				String carne;
-				String queso;
-				String extra;
+        
+        vista.btnAvanzar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				
 				
-				if(comidaRoja != null) {
-					id = comidaRoja.getIdComida();
-					nombre = comidaRoja.getNombre();
-					precio = comidaRoja.getPrecio();
-					pan = comidaRoja.getPan();
-					carne = comidaRoja.getCarne();
-					queso = comidaRoja.getQueso();
-					extra = comidaRoja.getExtra();
-					
-					vista.lblCarneR.setText(carne);
-					vista.lblExtraR.setText(extra);
-					vista.lblPanR.setText(pan);
-					vista.lblQuesoR.setText(queso);
-					
-					
-					
-				}
-				if(comidaVerde != null) {
-					id = comidaVerde.getIdComida();
-					nombre = comidaVerde.getNombre();
-					precio = comidaVerde.getPrecio();
-					pan = comidaVerde.getPan();
-					carne = comidaVerde.getCarne();
-					queso = comidaVerde.getQueso();
-					extra = comidaVerde.getExtra();
-					
-					vista.lblCarneR.setText(carne);
-					vista.lblExtraR.setText(extra);
-					vista.lblPanR.setText(pan);
-					vista.lblQuesoR.setText(queso);
-					
-					
-				}
-        	}
+				
+			}
+		});
+        
+     // CUANDO EL USUARIO CAMBIA LA ROJA
+        vista.CbRoja.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Comida comidaRoja = (Comida) vista.CbRoja.getSelectedItem();
+                if (comidaRoja == null) return;
+
+                vista.lblPanR.setText(comidaRoja.getPan());
+                vista.lblCarneR.setText(comidaRoja.getCarne());
+                vista.lblQuesoR.setText(comidaRoja.getQueso());
+                vista.lblExtraR.setText(comidaRoja.getExtra());
+                
+                idBurger = comidaRoja.getIdComida();
+                nombreBurger = comidaRoja.getNombre();
+                
+                
+            }
         });
+
+        // CUANDO EL USUARIO CAMBIA LA VERDE
+        vista.CbVerde.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Comida comidaVerde = (Comida) vista.CbVerde.getSelectedItem();
+                if (comidaVerde == null) return;
+
+                vista.lblPanR.setText(comidaVerde.getPan());
+                vista.lblCarneR.setText(comidaVerde.getCarne());
+                vista.lblQuesoR.setText(comidaVerde.getQueso());
+                vista.lblExtraR.setText(comidaVerde.getExtra());
+                
+                idBurger = comidaVerde.getIdComida();
+                nombreBurger = comidaVerde.getNombre();
+            }
+        });
+        
+        // CUANDO EL USUARIO ELIGE LA BEBIDA
+        vista.CbBebida.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				Bebida bebida = (Bebida) vista.CbBebida.getSelectedItem();
+				if (bebida == null) return;
+				
+				idBebida = bebida.getId();
+				nombreBebida = bebida.getNombre();
+
+				
+			}
+		});
+        
+        // CUANDO EL USUARIO ELIGE LAS PATATAS
+        vista.CbPatatas.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+
+				Patata patata = (Patata) vista.CbPatatas.getSelectedItem();
+				if (patata == null) return;
+				
+				idPatata = patata.getIdPatata();
+				nombrePatata = patata.getNombre();
+				
+
+        	}
+		});
+        	
+        	
+        
+        //BOTON AVANZAR PEDIDO
+        vista.btnAvanzar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.DomicilioOLocal.setVisible(false);
+				vista.PanelLocal.setVisible(false);
+				vista.PanelLocal2.setVisible(true);
+			}
+		});
+
+        //BOTON RETROCEDER PEDIDO
+        vista.btnRetroceso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				vista.PanelLocal2.setVisible(false);
+				vista.PanelLocal.setVisible(true);
+			}
+		});
+        
+        //BOTON RETROCEDER DESDE EL PANEL DE ANADIR PRODUCTO
+        vista.btnRetroceder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				vista.PanelLocal.setVisible(false);
+				vista.DomicilioOLocal.setVisible(true);
+				
+			}
+		});
+        
+        //BOTON AVANZAR AL RESUMEN DEL PEDIDO
+        vista.btnSig.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelLocal2.setVisible(false);
+				vista.PanelResumen.setVisible(true);
+				
+				vista.lblBurgerElegido.setText(nombreBurger);
+				vista.lblBebidaElegida.setText(nombreBebida);
+				vista.lblPatataElegida.setText(nombrePatata);
+				vista.lblComplementoElegido.setText(nombreComplemento);
+				
+			}
+		});
+        
+        //BOTON RETROCEDER DESDE EL RESUMEN DEL PEDIDO
+        vista.btnVolver3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelResumen.setVisible(false);
+				vista.PanelLocal2.setVisible(true);
+			}
+		});
+        
+        
+        
+        
         
         
     }
