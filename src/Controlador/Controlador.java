@@ -12,25 +12,34 @@ import Modelo.Bebida;
 import Modelo.Comida;
 import Modelo.Complemento;
 import Modelo.Patata;
+import Modelo.Pedido;
 import Modelo.Usuarios;
 import Vista.Vista;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controlador {
 
     private Vista vista;
     private ArrayList<Usuarios> listaUsuarios;
     static String nombre;
+    static HashMap<Integer, Comida> listaComidas = new HashMap<>();
     
     //Valiables necesarias para pedir
     private int idBurger;
     private int idBebida;
     private int idPatata;
     private int idComplemento;
+    private double costeTotal;
+    private double costeBurger;
+    private double costeBebida;
+    private double costePatata;
+    private double costeComplemento;
     private String nombreBurger;
     private String nombreBebida;
     private String nombrePatata;
     private String nombreComplemento;
+    public static String codigo; //DEBE DE SER ESTATICO PARA PODER UTILIZARSE EN EL METODO CREAR CODIGO
     
     
 
@@ -42,9 +51,12 @@ public class Controlador {
         JComboBox<Patata> comboBoxPatata = new JComboBox<>();
 
         // Usuarios de prueba
-        listaUsuarios.add(new Usuarios("david", "david"));
-        listaUsuarios.add(new Usuarios("felix", "felix"));
+        listaUsuarios.add(new Usuarios("david", "david", 0));
+        listaUsuarios.add(new Usuarios("felix", "felix", 1));
         
+        
+        
+       
         
         Comida c1 = new Comida(1, "Pizza", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
 		Comida c2 = new Comida(2, "Hamburguesa", 2, 5.49, "Integral", "Res", "Cheddar", "Tocino");
@@ -56,6 +68,17 @@ public class Controlador {
 		Comida c8 = new Comida(8, "Sopa", 2, 5.99, "Sin pan", "Ninguna", "Ninguno", "Crutones");
 		Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
 		Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
+		
+		listaComidas.put(c1.getIdComida(), c1);
+		listaComidas.put(c2.getIdComida(), c2);
+		listaComidas.put(c3.getIdComida(), c3);
+		listaComidas.put(c4.getIdComida(), c4);
+		listaComidas.put(c5.getIdComida(), c5);
+		listaComidas.put(c6.getIdComida(), c6);
+		listaComidas.put(c7.getIdComida(), c7);
+		listaComidas.put(c8.getIdComida(), c8);
+		listaComidas.put(c9.getIdComida(), c9);
+		listaComidas.put(c10.getIdComida(), c10);
 		
 		
 		Bebida b1 = new Bebida(1, "Coca-Cola", 1.5);
@@ -147,7 +170,7 @@ public class Controlador {
     	        }
 
     	        // Añadir usuario
-    	        listaUsuarios.add(new Usuarios(nombre, contrasena));
+    	        listaUsuarios.add(new Usuarios(nombre, contrasena, listaUsuarios.size() + 1));
     	        JOptionPane.showMessageDialog(vista, "Registro exitoso. Ahora puede iniciar sesión.");
 
     	        // LIMPIAR CAMPOS
@@ -409,6 +432,8 @@ public class Controlador {
                 	vista.Contacto.setVisible(false);
                     vista.PanelMenuPrincipal.setVisible(false);
                     vista.PanelInicioSesion.setVisible(true);
+                    vista.DomicilioOLocal.setVisible(false);
+                    
                 }
             }
         });
@@ -419,6 +444,7 @@ public class Controlador {
         		
         		vista.DomicilioOLocal.setVisible(false);
 				vista.PanelLocal.setVisible(true);
+				
 				
         	}
         });
@@ -447,6 +473,7 @@ public class Controlador {
                 
                 idBurger = comidaRoja.getIdComida();
                 nombreBurger = comidaRoja.getNombre();
+                costeBurger = comidaRoja.getPrecio();
                 
                 
             }
@@ -467,6 +494,7 @@ public class Controlador {
                 
                 idBurger = comidaVerde.getIdComida();
                 nombreBurger = comidaVerde.getNombre();
+                costeBurger = comidaVerde.getPrecio();
             }
         });
         
@@ -480,6 +508,7 @@ public class Controlador {
 				
 				idBebida = bebida.getId();
 				nombreBebida = bebida.getNombre();
+				costeBebida = bebida.getPrecio();
 
 				
 			}
@@ -495,12 +524,25 @@ public class Controlador {
 				
 				idPatata = patata.getIdPatata();
 				nombrePatata = patata.getNombre();
+				costePatata = patata.getPrecio();
 				
 
         	}
 		});
         	
-        	
+        // CUANDO EL USUARIO ELIGE EL COMPLEMENTO
+        vista.CbComp.addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		Complemento complemento = (Complemento) vista.CbComp.getSelectedItem();
+				if (complemento == null) return;
+				
+				idComplemento = complemento.getIdComplemento();
+				nombreComplemento = complemento.getNombre();
+				costeComplemento = complemento.getPrecio();
+        	}
+        });
+			
         
         //BOTON AVANZAR PEDIDO
         vista.btnAvanzar.addActionListener(new ActionListener() {
@@ -541,6 +583,13 @@ public class Controlador {
 				vista.lblPatataElegida.setText(nombrePatata);
 				vista.lblComplementoElegido.setText(nombreComplemento);
 				
+				costeTotal = costeBurger + costeBebida + costePatata + costeComplemento;
+				vista.lblCostePedido.setText(String.format("%.2f €", costeTotal));
+				
+				
+				
+				
+				
 			}
 		});
         
@@ -553,8 +602,85 @@ public class Controlador {
 		});
         
         
+        //BOTON CONFIRMAR PEDIDO
+        vista.btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				vista.PanelResumen.setVisible(false);
+				vista.PanelCodPedido.setVisible(true);
+				 
+				
+				
+				
+				crearCodigo();
+				
+				vista.lblCodigo.setText(codigo);
+				
+				
+				
+			}
+
+			public static String crearCodigo() {
+				codigo = "";
+
+			    for (int i = 0; i < 3; i++) {
+			     
+			        int numAleat = (int) (Math.random() * 26);
+
+			  
+			        char letra = (char) ('A' + numAleat);
+
+			        codigo = codigo + letra;
+			    }
+
+			    return codigo;
+				
+				
+			}
+		});
         
         
+        //AÑADIR PRODUCTO DESDE LA VISTA DE ADMINISTRADOR
+        vista.btnAnadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int numComida = listaComidas.size() + 1;
+				String indiceComida ="c" + Integer.toString(numComida);
+				int colorComida = Integer.parseInt(vista.textColor.getText());
+				double precioComida = Double.parseDouble(vista.textPrecioB.getText());
+				String nombreComida = vista.textNombre.getText();
+				String panComida = vista.textPanB.getText();
+				String carneComida = vista.textCarneB.getText();
+				String quesoComida = vista.textQuesoB.getText();
+				String extraComida = vista.textExtraB.getText();
+					
+				Comida nuevaComida = new Comida(numComida, nombreComida, colorComida, precioComida, panComida, carneComida, quesoComida, extraComida);
+
+				
+				if(colorComida == 1) {
+					vista.CbRoja.addItem(nuevaComida);
+				} else if (colorComida == 2) {
+					vista.CbVerde.addItem(nuevaComida);
+					
+				}else {
+					JOptionPane.showMessageDialog(vista, "El color debe ser 1 (Roja) o 2 (Verde)");
+					return;
+				}
+				
+				
+				listaComidas.put(numComida, nuevaComida);
+				
+				
+				
+				
+				JOptionPane.showMessageDialog(vista, "Producto añadido correctamente");
+				
+				vista.PanelAnadirProd.setVisible(false);
+				vista.PanelMenuPrincipal.setVisible(true);
+			
+				
+			}
+		});
         
         
     }
