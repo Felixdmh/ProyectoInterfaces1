@@ -39,8 +39,20 @@ public class Controlador {
     private String nombreBebida;
     private String nombrePatata;
     private String nombreComplemento;
+    private String direccion;
     public static String codigo; //DEBE DE SER ESTATICO PARA PODER UTILIZARSE EN EL METODO CREAR CODIGO
     
+    Comida c1 = new Comida(1, "Pizza", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
+	Comida c2 = new Comida(2, "Hamburguesa", 2, 5.49, "Integral", "Res", "Cheddar", "Tocino");
+	Comida c3 = new Comida(3, "Sushi",	1, 12.99, "Centeno", "Atún", "Requeson", "Aguacate");
+	Comida c4 = new Comida(4, "Ensalada", 2, 6.99, "Sin pan", "Ninguna", "Feta", "Nueces");
+	Comida c5 = new Comida(5, "Taco", 1, 4.99, "Maíz", "Cerdo", "Queso fresco", "Cilantro");
+	Comida c6 = new Comida(6, "Pasta", 2, 7.99, "Sin pan", "Pollo", "Parmesano", "Champiñones");
+	Comida c7 = new Comida(7, "Wrap", 1, 6.49, "Tortilla", "Pavo", "Suizo", "Lechuga");
+	Comida c8 = new Comida(8, "Sopa", 2, 5.99, "Sin pan", "Ninguna", "Ninguno", "Crutones");
+	Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
+	Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
+	
     
 
     public Controlador(Vista vista) {
@@ -58,17 +70,7 @@ public class Controlador {
         
        
         
-        Comida c1 = new Comida(1, "Pizza", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
-		Comida c2 = new Comida(2, "Hamburguesa", 2, 5.49, "Integral", "Res", "Cheddar", "Tocino");
-		Comida c3 = new Comida(3, "Sushi",	1, 12.99, "Centeno", "Atún", "Requeson", "Aguacate");
-		Comida c4 = new Comida(4, "Ensalada", 2, 6.99, "Sin pan", "Ninguna", "Feta", "Nueces");
-		Comida c5 = new Comida(5, "Taco", 1, 4.99, "Maíz", "Cerdo", "Queso fresco", "Cilantro");
-		Comida c6 = new Comida(6, "Pasta", 2, 7.99, "Sin pan", "Pollo", "Parmesano", "Champiñones");
-		Comida c7 = new Comida(7, "Wrap", 1, 6.49, "Tortilla", "Pavo", "Suizo", "Lechuga");
-		Comida c8 = new Comida(8, "Sopa", 2, 5.99, "Sin pan", "Ninguna", "Ninguno", "Crutones");
-		Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
-		Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
-		
+        
 		listaComidas.put(c1.getIdComida(), c1);
 		listaComidas.put(c2.getIdComida(), c2);
 		listaComidas.put(c3.getIdComida(), c3);
@@ -122,6 +124,15 @@ public class Controlador {
 		vista.CbComp.addItem(complemento2);
 		vista.CbComp.addItem(complemento3);
 		
+		vista.cbBebida.addItem(b1);
+		vista.cbBebida.addItem(b2);
+		vista.cbBebida.addItem(b3);
+		vista.cbBebida.addItem(b4);
+		vista.cbBebida.addItem(b5);
+		
+		vista.cbPatatas.addItem(p1);
+		vista.cbPatatas.addItem(p2);
+		vista.cbPatatas.addItem(p3);
 		
 		
         
@@ -438,7 +449,7 @@ public class Controlador {
             }
         });
         
-        //BOTON PARA IR DESDE PEDIDOOLOCAL O LA SECCION PEDIR EN EL LOCAL
+        //BOTON PARA IR DESDE PEDIDOOLOCAL A LA SECCION PEDIR EN EL LOCAL
         vista.btnPedirEnLocal.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
@@ -449,11 +460,95 @@ public class Controlador {
         	}
         });
         
-        
-        vista.btnAvanzar.addActionListener(new ActionListener() {
+        //BOTON PARA IR DESDE PODIDOOLOCAL A LA SECCION A DOMICILIO
+        vista.btnPedirDomicilio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				vista.DomicilioOLocal.setVisible(false);
+				vista.PanelDomicilio.setVisible(true);
 				
 				
+				vista.CbRoja_1.addItem(c1);
+				vista.CbVerde_1.addItem(c2);
+				vista.CbRoja_1.addItem(c3);
+				vista.CbVerde_1.addItem(c4);
+				vista.CbRoja_1.addItem(c5);
+				vista.CbVerde_1.addItem(c6);
+				vista.CbRoja_1.addItem(c7);
+				vista.CbVerde_1.addItem(c8);
+				vista.CbRoja_1.addItem(c9);
+				vista.CbRoja_1.addItem(c10);
+				
+			}
+		});
+        
+     // CUANDO EL USUARIO CAMBIA LA ROJA
+        vista.CbRoja_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Comida comidaRoja = (Comida) vista.CbRoja_1.getSelectedItem();
+                if (comidaRoja == null) return;
+
+                vista.lblPanR_1.setText(comidaRoja.getPan());
+                vista.lblCarneR_1.setText(comidaRoja.getCarne());
+                vista.lblQuesoR_1.setText(comidaRoja.getQueso());
+                vista.lblExtraR_1.setText(comidaRoja.getExtra());
+                
+                idBurger = comidaRoja.getIdComida();
+                nombreBurger = comidaRoja.getNombre();
+                costeBurger = comidaRoja.getPrecio();
+                
+                
+            }
+        });
+
+        // CUANDO EL USUARIO CAMBIA LA VERDE
+        vista.CbVerde_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Comida comidaVerde = (Comida) vista.CbVerde_1.getSelectedItem();
+                if (comidaVerde == null) return;
+
+                vista.lblPanR_1.setText(comidaVerde.getPan());
+                vista.lblCarneR_1.setText(comidaVerde.getCarne());
+                vista.lblQuesoR_1.setText(comidaVerde.getQueso());
+                vista.lblExtraR_1.setText(comidaVerde.getExtra());
+                
+                idBurger = comidaVerde.getIdComida();
+                nombreBurger = comidaVerde.getNombre();
+                costeBurger = comidaVerde.getPrecio();
+            }
+        });
+        //BOTON AVANZAR DESDE DOMICILIO 1
+        vista.btnAvanzar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelDomicilio.setVisible(false);
+				vista.PanelDomicilio2.setVisible(true);
+			}
+		});
+        
+        //VOLVER DESDE DOMICILIO 1
+        vista.btnRetroceder_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelDomicilio.setVisible(false);
+				vista.DomicilioOLocal.setVisible(true);
+			}
+		});
+        
+        //VOLVER DESDE DOMICILIO 2
+        vista.btnRetroceso_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelDomicilio2.setVisible(false);
+				vista.PanelDomicilio.setVisible(true);
+			}
+		});
+        
+        //BOTON AVANZAR AL RESUMEN DEL PEDIDO DESDE DOMICILIO
+        vista.btnSig_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelDomicilio2.setVisible(false);
+				vista.PanelResumen.setVisible(true);
 				
 			}
 		});
@@ -572,7 +667,7 @@ public class Controlador {
 			}
 		});
         
-        //BOTON AVANZAR AL RESUMEN DEL PEDIDO
+        //BOTON AVANZAR AL RESUMEN EN LOCAL DEL PEDIDO
         vista.btnSig.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.PanelLocal2.setVisible(false);
@@ -593,6 +688,67 @@ public class Controlador {
 			}
 		});
         
+        //BOTON AVANZAR AL RESUMEN A DOMICILIO DEL PEDIDO
+        vista.btnSig_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelDomicilio2.setVisible(false);
+				vista.PanelResumenDomicilio.setVisible(true);
+				
+				vista.lblBurgerElegido_1.setText(nombreBurger);
+				vista.lblBebidaElegida_1.setText(nombreBebida);
+				vista.lblPatataElegida_1.setText(nombrePatata);
+				
+				
+				costeTotal = costeBurger + costeBebida + costePatata;
+				vista.lblCostePedido_1.setText(String.format("%.2f €", costeTotal));
+				
+				
+				
+				
+				
+			}
+		});
+        
+        //BOTON CONFIRMAR PEDIDO A DOMICILIO
+        vista.btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				direccion = vista.textDireccion.getText();
+				
+				if(direccion.isEmpty()) {
+					JOptionPane.showMessageDialog(vista, "Por favor, ingrese una dirección de entrega.");
+					return;
+				}
+				
+				vista.PanelResumenDomicilio.setVisible(false);
+				vista.PanelCodDomicilio.setVisible(true);
+				
+				crearCodigo();
+				
+				vista.lblDireccionPedido.setText(direccion);
+				vista.lblCodigo_1.setText(codigo);
+			}
+			
+			public static String crearCodigo() {
+				codigo = "";
+
+			    for (int i = 0; i < 3; i++) {
+			     
+			        int numAleat = (int) (Math.random() * 26);
+
+			  
+			        char letra = (char) ('A' + numAleat);
+
+			        codigo = codigo + letra;
+			    }
+
+			    return codigo;
+				
+				
+			}
+		});
+        
         //BOTON RETROCEDER DESDE EL RESUMEN DEL PEDIDO
         vista.btnVolver3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -601,6 +757,13 @@ public class Controlador {
 			}
 		});
         
+        //BOTON RETROCEDER DESDE EL RESUMEN DEL PEDIDO A DOMICILIO
+        vista.btnVolver3_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelResumenDomicilio.setVisible(false);
+				vista.PanelDomicilio2.setVisible(true);
+			}
+		});
         
         //BOTON CONFIRMAR PEDIDO
         vista.btnNewButton.addActionListener(new ActionListener() {
@@ -682,6 +845,93 @@ public class Controlador {
 			}
 		});
         
+      //BOTON ELIMINAR PRODUCTO DESDE LA VISTA DE ADMINISTRADOR
+        vista.btnEliminarProducto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//elimar producto por nombre
+				if(!vista.textBurgerElim.getText().isEmpty()) {
+					String nombreAEliminar = vista.textBurgerElim.getText();
+					listaComidas.values().removeIf(comida -> comida.getNombre().equalsIgnoreCase(nombreAEliminar));
+					
+					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
+					//eliminar de los JComboBox
+					vista.CbRoja.removeItem(nombreAEliminar);
+					vista.CbVerde.removeItem(nombreAEliminar);	
+					
+				}
+				 
+				if(!vista.textBebidaElim.getText().isEmpty()) {
+					String nombreAEliminar = vista.textBebidaElim.getText();
+					//eliminar bebida del JComboBox
+					vista.CbBebida.removeItem(nombreAEliminar);
+					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
+					return;
+					
+				}
+				
+				if(!vista.textPatataElim.getText().isEmpty()) {
+					String nombreAEliminar = vista.textPatataElim.getText();
+					//eliminar patata del JComboBox
+					vista.CbPatatas.removeItem(nombreAEliminar);
+					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
+					return;
+					
+				}
+				
+				if(!vista.textExtraElim.getText().isEmpty()) {
+					String nombreAEliminar = vista.textExtraElim.getText();
+					//eliminar complemento del JComboBox
+					vista.CbComp.removeItem(nombreAEliminar);
+					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
+					return;
+					
+				}
+				
+				vista.PanelAnadirProd.setVisible(false);
+				vista.PanelMenuPrincipal.setVisible(true);
+			}
+			
+			
+		});
+        
+        //CANCELAR ELIMINR PRODUCTO
+        vista.btnEliminarProductoCancelado.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				
+        		vista.PanelEliminarProd.setVisible(false);
+        		vista.PanelAdmin.setVisible(true);
+			}
+		});
+        
+        
+        //CAMBIAR A VISTA ELIMINAR PRODUCTO DESDE ADMINISTRADOR
+        
+        vista.btnEliminarProd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				vista.PanelAdmin.setVisible(false);
+				vista.PanelEliminarProd.setVisible(true);
+			}
+		});
+        
+        //VOLVER AL MENU PRINCIPAL DESDE LA PANTALLA DEL CODIGO DEL PEDIDO A DOMICILIO
+        vista.btnMenuPrincipalDomicilio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelCodDomicilio.setVisible(false);
+				vista.PanelMenuPrincipal.setVisible(true);
+				vista.PanelResumenDomicilio.setVisible(false);
+			}
+		});
+        
+        //VOLVER AL MENU PRINCIPAL DESDE LA PANTALLA DEL CODIGO DEL PEDIDO EN LOCAL
+        vista.btnMenuPrincipalLocal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelCodPedido.setVisible(false);
+				vista.PanelMenuPrincipal.setVisible(true);
+				vista.PanelResumen.setVisible(false);
+			}
+		});
         
     }
 }

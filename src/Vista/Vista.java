@@ -173,11 +173,66 @@ public class Vista extends JFrame {
 	public JTextField textPatataElim;
 	public JTextField textBebidaElim;
 	public JTextField textExtraElim;
-	public JLabel lblIdBurgerElim;
+	public JLabel lblNombreBurgerElim;
 	public JLabel lblPatataElim;
 	public JLabel lblBebidaElim;
 	public JLabel lblExtraElim;
 	public JButton btnEliminarProductoCancelado;
+	public JLabel lblBurgerVerde_1;
+	public JLabel lblBurgerRoja_1;
+	public JPanel PanelDomicilio;
+	public JComboBox CbVerde_1;
+	public JComboBox CbRoja_1;
+	public JLabel lblFotoFondoDomicilio;
+	public JLabel lblPan_1;
+	public JLabel lblCarne_1;
+	public JLabel lblQueso_1;
+	public JLabel lblExtras_1;
+	public JLabel lblEligeTP_1;
+	public JLabel lblPanR_1;
+	public JLabel lblCarneR_1;
+	public JLabel lblQuesoR_1;
+	public JLabel lblExtraR_1;
+	public JLabel lblTablon_1;
+	public JButton btnAvanzar_1;
+	public JButton btnRetroceder_1;
+	public JPanel PanelDomicilio2;
+	public JLabel lblComp_1;
+	public JLabel lblBebida_1;
+	public JLabel lblPatata_1;
+	public JComboBox cbPatatas;
+	public JComboBox cbBebida;
+	public JButton btnSig_1;
+	public JButton btnRetroceso_1;
+	public JLabel lblFotoFondoPedido2_1;
+	public JLabel lblCruz;
+	public JLabel lblSoloTienda;
+	public JPanel PanelResumenDomicilio;
+	public JLabel lblCostePedido_1;
+	public JLabel lblResumenPedido_1;
+	public JButton btnNewButton_1;
+	public JLabel lblBurgerElegido_1;
+	public JLabel lblBebidaElegida_1;
+	public JLabel lblPatataElegida_1;
+	public JLabel lblComplementoElegido_1;
+	public JLabel lblPrecioResumen_1;
+	public JButton btnVolver3_1;
+	public JLabel lblPergaminoPedido_1;
+	public JLabel lblFotoFondoResumen_1;
+	public JLabel lblDireccion;
+	public JTextField textDireccion;
+	public JPanel PanelCodDomicilio;
+	public JLabel lblPedidoCompletado_1;
+	public JLabel lblTextoCodigo_1;
+	public JLabel lblCodigo_1;
+	public JLabel lblDireccionPedido;
+	public JLabel lblMuchasGracias_1;
+	public JLabel lblFotoFondoCod_1;
+	public JButton btnMenuPrincipalDomicilio;
+	public JButton btnMenuPrincipalLocal;
+	private JLabel logoPeque_1;
+	private JLabel logoPeque_2;
+	private JLabel lblCompletaMenu;
 
 
 	public static void main(String[] args) {
@@ -200,207 +255,642 @@ public class Vista extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		PanelAdmin = new JPanel();
-		PanelAdmin.setVisible(false);
 		lblEspec = new JLabel("ESPECIFICACIONES");
 		lblEspec.setBounds(91, 288, 204, 29);
 
-
-		// PANEL PEDIR COMPRAR                                                 
-		DomicilioOLocal = new JPanel();
-		DomicilioOLocal.setVisible(false);
-
-		PanelLocal = new JPanel();
-		PanelLocal.setVisible(false);
-
-		PanelLocal2 = new JPanel();
-		PanelLocal2.setVisible(false);
-
 		PanelResumen = new JPanel();
 		PanelResumen.setVisible(false);
-
-		PanelCodPedido = new JPanel();
-		PanelCodPedido.setVisible(false);
-
-
-		//----------- Panel Añadir Producto ----------//
-		PanelAnadirProd = new JPanel();
-		PanelAnadirProd.setVisible(false);
 		
-		PanelEliminarProd = new JPanel();
-		PanelEliminarProd.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelEliminarProd);
-		PanelEliminarProd.setLayout(null);
-		
-		lblEliminarProd = new JLabel("ELIMINAR PRODUCTO");
-		lblEliminarProd.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblEliminarProd.setBounds(85, 93, 233, 42);
-		PanelEliminarProd.add(lblEliminarProd);
-		
-		lblAdministradores_1 = new JLabel("SOLO ADMINISTRADORES");
-		lblAdministradores_1.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblAdministradores_1.setBounds(30, 26, 330, 57);
-		PanelEliminarProd.add(lblAdministradores_1);
-		
-		btnEliminarProducto = new JButton("ELIMINAR");
-		btnEliminarProducto.setBounds(217, 495, 101, 42);
-		PanelEliminarProd.add(btnEliminarProducto);
-		
-		textBurgerElim = new JTextField();
-		textBurgerElim.setBounds(222, 160, 96, 19);
-		PanelEliminarProd.add(textBurgerElim);
-		textBurgerElim.setColumns(10);
-		
-		textPatataElim = new JTextField();
-		textPatataElim.setBounds(222, 245, 96, 19);
-		PanelEliminarProd.add(textPatataElim);
-		textPatataElim.setColumns(10);
-		
-		textBebidaElim = new JTextField();
-		textBebidaElim.setBounds(222, 329, 96, 19);
-		PanelEliminarProd.add(textBebidaElim);
-		textBebidaElim.setColumns(10);
-		
-		textExtraElim = new JTextField();
-		textExtraElim.setBounds(222, 418, 96, 19);
-		PanelEliminarProd.add(textExtraElim);
-		textExtraElim.setColumns(10);
-		
-		lblIdBurgerElim = new JLabel("ID DE LA HAMBURGUESA:");
-		lblIdBurgerElim.setBounds(55, 163, 141, 13);
-		PanelEliminarProd.add(lblIdBurgerElim);
-		
-		lblPatataElim = new JLabel("ID DE LA PATATA:");
-		lblPatataElim.setBounds(55, 248, 122, 13);
-		PanelEliminarProd.add(lblPatataElim);
-		
-		lblBebidaElim = new JLabel("ID DE LA BEBIDA:");
-		lblBebidaElim.setBounds(55, 332, 122, 13);
-		PanelEliminarProd.add(lblBebidaElim);
-		
-		lblExtraElim = new JLabel("ID DEL EXTRA:");
-		lblExtraElim.setBounds(55, 421, 113, 13);
-		PanelEliminarProd.add(lblExtraElim);
-		
-		btnEliminarProductoCancelado = new JButton("CANCELAR");
-		btnEliminarProductoCancelado.setBounds(55, 495, 101, 42);
-		PanelEliminarProd.add(btnEliminarProductoCancelado);
-		PanelAnadirProd.setLayout(null);
-		PanelAnadirProd.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelAnadirProd);
+				PanelAdmin = new JPanel();
+				PanelAdmin.setVisible(false);
+				
+				
+						//----------- Panel Añadir Producto ----------//
+						PanelAnadirProd = new JPanel();
+						PanelAnadirProd.setVisible(false);
+						
+						
+								// PANEL PEDIR COMPRAR                                                 
+								DomicilioOLocal = new JPanel();
+								DomicilioOLocal.setVisible(false);
+								
+								PanelDomicilio = new JPanel();
+								PanelDomicilio.setVisible(false);
+								
+								PanelDomicilio2 = new JPanel();
+								PanelDomicilio2.setVisible(false);
+								
+								PanelResumenDomicilio = new JPanel();
+								PanelResumenDomicilio.setVisible(false);
+										
+												PanelCodPedido = new JPanel();
+												PanelCodPedido.setVisible(false);
+												
+												PanelCodDomicilio = new JPanel();
+												PanelCodDomicilio.setVisible(false);
+												
+												PanelEliminarProd = new JPanel();
+												PanelEliminarProd.setVisible(false);
+												
+														PanelLocal = new JPanel();
+														PanelLocal.setVisible(false);
+														
+																PanelLocal2 = new JPanel();
+																PanelLocal2.setVisible(false);
+																PanelLocal2.setBounds(0, 0, 386, 547);
+																contentPane.add(PanelLocal2);
+																PanelLocal2.setLayout(null);
+																		
+																		logoPeque_2 = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
+																		logoPeque_2.setBounds(139, 0, 96, 79);
+																		PanelLocal2.add(logoPeque_2);
+																
+																		lblComp = new JLabel(new ImageIcon("imagenes/Complementos.png"));
+																		lblComp.setBounds(139, 240, 100, 82);
+																		PanelLocal2.add(lblComp);
+																		
+																				lblBebida = new JLabel(new ImageIcon("imagenes/Bebida.png"));
+																				lblBebida.setBounds(252, 118, 100, 82);
+																				PanelLocal2.add(lblBebida);
+																				
+																						lblPatata = new JLabel(new ImageIcon("imagenes/Patatas.png"));
+																						lblPatata.setBounds(32, 118, 100, 82);
+																						PanelLocal2.add(lblPatata);
+																						
+																								CbPatatas = new JComboBox();
+																								CbPatatas.setBounds(32, 210, 100, 21);
+																								PanelLocal2.add(CbPatatas);
+																								
+																										CbBebida = new JComboBox();
+																										CbBebida.setBounds(252, 210, 100, 21);
+																										PanelLocal2.add(CbBebida);
+																										
+																												CbComp = new JComboBox();
+																												CbComp.setBounds(139, 329, 100, 21);
+																												PanelLocal2.add(CbComp);
+																												
+																														btnSig = new JButton("--->");
+																														btnSig.setBounds(267, 432, 85, 21);
+																														PanelLocal2.add(btnSig);
+																														
+																																btnRetroceso = new JButton("<---");
+																																btnRetroceso.setBounds(32, 432, 85, 21);
+																																PanelLocal2.add(btnRetroceso);
+																																
+																																		lblFotoFondoPedido2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																																		lblFotoFondoPedido2.setBounds(0, 0, 386, 547);
+																																		PanelLocal2.add(lblFotoFondoPedido2);
+																																		
+																																		lblCompletaMenu = new JLabel("COMPLETA TU MENU");
+																																		lblCompletaMenu.setBounds(32, 91, 317, 48);
+																																		PanelLocal2.add(lblCompletaMenu);
+														PanelLocal.setBounds(0, 0, 386, 547);
+														contentPane.add(PanelLocal);
+														PanelLocal.setLayout(null);
+														
+																lblBurgerVerde = new JLabel(new ImageIcon("imagenes/BurgerV.png"));
+																lblBurgerVerde.setBounds(246, 110, 93, 74);
+																PanelLocal.add(lblBurgerVerde);
+																
+																		lblBurgerRoja = new JLabel(new ImageIcon("imagenes/BurgerR.png"));
+																		lblBurgerRoja.setBounds(43, 110, 81, 74);
+																		PanelLocal.add(lblBurgerRoja);
+																		
+																				CbVerde = new JComboBox();
+																				CbVerde.setBounds(246, 194, 93, 21);
+																				PanelLocal.add(CbVerde);
+																				
+																						CbRoja = new JComboBox();
+																						CbRoja.setBounds(43, 194, 93, 21);
+																						PanelLocal.add(CbRoja);
+																						
+																								PanelLocal.add(CbVerde);
+																								
+																										lblPan = new JLabel("PAN:");
+																										lblPan.setBounds(55, 342, 45, 13);
+																										PanelLocal.add(lblPan);
+																										
+																												lblCarne = new JLabel("CARNE:");
+																												lblCarne.setBounds(55, 375, 45, 13);
+																												PanelLocal.add(lblCarne);
+																												
+																														lblQueso = new JLabel("QUESO:");
+																														lblQueso.setBounds(55, 413, 45, 13);
+																														PanelLocal.add(lblQueso);
+																														
+																																lblExtras = new JLabel("EXTRAS:");
+																																lblExtras.setBounds(55, 449, 45, 13);
+																																PanelLocal.add(lblExtras);
+																																
+																																		lblEligeTP = new JLabel("ELIGE TUS \r\nPRODUCTOS");
+																																		lblEligeTP.setFont(new Font("Tahoma", Font.BOLD, 25));
+																																		lblEligeTP.setBounds(50, 64, 295, 63);
+																																		PanelLocal.add(lblEligeTP);
+																																		
+																																				lblPanR = new JLabel("");
+																																				lblPanR.setBounds(123, 342, 172, 13);
+																																				PanelLocal.add(lblPanR);
+																																				
+																																						lblCarneR = new JLabel("");
+																																						lblCarneR.setBounds(122, 375, 173, 13);
+																																						PanelLocal.add(lblCarneR);
+																																						
+																																								lblQuesoR = new JLabel("");
+																																								lblQuesoR.setBounds(122, 413, 173, 13);
+																																								PanelLocal.add(lblQuesoR);
+																																								
+																																										lblExtraR = new JLabel("");
+																																										lblExtraR.setBounds(123, 449, 172, 13);
+																																										PanelLocal.add(lblExtraR);
+																																										
+																																												lblTablon = new JLabel(new ImageIcon("imagenes/TablonFondo.png"));
+																																												lblTablon.setBounds(31, 314, 314, 191);
+																																												PanelLocal.add(lblTablon);
+																																												
+																																														btnAvanzar = new JButton("--->");
+																																														
+																																																btnAvanzar.setBounds(254, 266, 85, 21);
+																																																PanelLocal.add(btnAvanzar);
+																																																
+																																																		btnRetroceder = new JButton("<---");
+																																																		btnRetroceder.setBounds(51, 266, 85, 21);
+																																																		PanelLocal.add(btnRetroceder);
+																																																				
+																																																				logoPeque_1 = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
+																																																				logoPeque_1.setBounds(142, 0, 96, 79);
+																																																				PanelLocal.add(logoPeque_1);
+																																																		
+																																																				lblFotoFondoLocal = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																																																				lblFotoFondoLocal.setBounds(0, 0, 386, 547);
+																																																				PanelLocal.add(lblFotoFondoLocal);
+												PanelEliminarProd.setBounds(0, 0, 386, 547);
+												contentPane.add(PanelEliminarProd);
+												PanelEliminarProd.setLayout(null);
+												
+												lblEliminarProd = new JLabel("ELIMINAR PRODUCTO");
+												lblEliminarProd.setFont(new Font("Tahoma", Font.BOLD, 20));
+												lblEliminarProd.setBounds(85, 93, 233, 42);
+												PanelEliminarProd.add(lblEliminarProd);
+												
+												lblAdministradores_1 = new JLabel("SOLO ADMINISTRADORES");
+												lblAdministradores_1.setVisible(false);
+												lblAdministradores_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+												lblAdministradores_1.setBounds(30, 26, 330, 57);
+												PanelEliminarProd.add(lblAdministradores_1);
+												
+												btnEliminarProducto = new JButton("ELIMINAR");
+												btnEliminarProducto.setBounds(217, 495, 101, 42);
+												PanelEliminarProd.add(btnEliminarProducto);
+												
+												textBurgerElim = new JTextField();
+												textBurgerElim.setBounds(222, 160, 96, 19);
+												PanelEliminarProd.add(textBurgerElim);
+												textBurgerElim.setColumns(10);
+												
+												textPatataElim = new JTextField();
+												textPatataElim.setBounds(222, 245, 96, 19);
+												PanelEliminarProd.add(textPatataElim);
+												textPatataElim.setColumns(10);
+												
+												textBebidaElim = new JTextField();
+												textBebidaElim.setBounds(222, 329, 96, 19);
+												PanelEliminarProd.add(textBebidaElim);
+												textBebidaElim.setColumns(10);
+												
+												textExtraElim = new JTextField();
+												textExtraElim.setBounds(222, 418, 96, 19);
+												PanelEliminarProd.add(textExtraElim);
+												textExtraElim.setColumns(10);
+												
+												lblNombreBurgerElim = new JLabel("NOMBRE DE LA HAMBURGUESA:");
+												lblNombreBurgerElim.setBounds(55, 163, 157, 13);
+												PanelEliminarProd.add(lblNombreBurgerElim);
+												
+												lblPatataElim = new JLabel("NOMBRE DE LA PATATA:");
+												lblPatataElim.setBounds(55, 248, 122, 13);
+												PanelEliminarProd.add(lblPatataElim);
+												
+												lblBebidaElim = new JLabel("NOMBRE DE LA BEBIDA:");
+												lblBebidaElim.setBounds(55, 332, 122, 13);
+												PanelEliminarProd.add(lblBebidaElim);
+												
+												lblExtraElim = new JLabel("NOMBRE DEL EXTRA:");
+												lblExtraElim.setBounds(55, 421, 113, 13);
+												PanelEliminarProd.add(lblExtraElim);
+												
+												btnEliminarProductoCancelado = new JButton("CANCELAR");
+												
+												btnEliminarProductoCancelado.setBounds(55, 495, 101, 42);
+												PanelEliminarProd.add(btnEliminarProductoCancelado);
+												PanelCodDomicilio.setBounds(0, 0, 386, 547);
+												contentPane.add(PanelCodDomicilio);
+												PanelCodDomicilio.setLayout(null);
+												
+												btnMenuPrincipalDomicilio = new JButton("VOLVER AL MENU");
+												btnMenuPrincipalDomicilio.setBounds(100, 482, 155, 23);
+												PanelCodDomicilio.add(btnMenuPrincipalDomicilio);
+												
+												lblPedidoCompletado_1 = new JLabel("PEDIDO COMPLETADO");
+												lblPedidoCompletado_1.setBounds(85, 70, 223, 40);
+												PanelCodDomicilio.add(lblPedidoCompletado_1);
+												
+												lblTextoCodigo_1 = new JLabel("CODIGO:");
+												lblTextoCodigo_1.setBounds(84, 132, 91, 88);
+												PanelCodDomicilio.add(lblTextoCodigo_1);
+												
+												lblCodigo_1 = new JLabel("");
+												lblCodigo_1.setBounds(201, 132, 91, 88);
+												PanelCodDomicilio.add(lblCodigo_1);
+												
+												lblDireccionPedido = new JLabel("");
+												lblDireccionPedido.setBounds(68, 401, 250, 46);
+												PanelCodDomicilio.add(lblDireccionPedido);
+												
+												lblMuchasGracias_1 = new JLabel("MUCHAS GRACIAS");
+												lblMuchasGracias_1.setBounds(139, 457, 137, 25);
+												PanelCodDomicilio.add(lblMuchasGracias_1);
+												
+												lblFotoFondoCod_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+												lblFotoFondoCod_1.setBounds(0, 0, 386, 547);
+												PanelCodDomicilio.add(lblFotoFondoCod_1);
+												PanelCodPedido.setBounds(0, 0, 386, 547);
+												contentPane.add(PanelCodPedido);
+												PanelCodPedido.setLayout(null);
+												
+												btnMenuPrincipalLocal = new JButton("VOLVER AL MENU");
+												btnMenuPrincipalLocal.setBounds(109, 493, 155, 23);
+												PanelCodPedido.add(btnMenuPrincipalLocal);
+												
+														lblPedidoCompletado = new JLabel("PEDIDO COMPLETADO");
+														lblPedidoCompletado.setBounds(85, 70, 223, 40);
+														PanelCodPedido.add(lblPedidoCompletado);
+														
+																lblTextoCodigo = new JLabel("CODIGO:");
+																lblTextoCodigo.setBounds(84, 132, 91, 88);
+																PanelCodPedido.add(lblTextoCodigo);
+																
+																		lblCodigo = new JLabel("");
+																		lblCodigo.setBounds(201, 132, 91, 88);
+																		PanelCodPedido.add(lblCodigo);
+																		
+																				lblNewLabel = new JLabel("RECOGER EN MOSTRADOR");
+																				lblNewLabel.setBounds(58, 400, 250, 46);
+																				PanelCodPedido.add(lblNewLabel);
+																				
+																						lblMuchasGracias = new JLabel("MUCHAS GRACIAS");
+																						lblMuchasGracias.setBounds(139, 457, 137, 25);
+																						PanelCodPedido.add(lblMuchasGracias);
+																						
+																								lblFotoFondoCod = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																								lblFotoFondoCod.setBounds(0, 0, 386, 547);
+																								PanelCodPedido.add(lblFotoFondoCod);
+								PanelResumenDomicilio.setBounds(0, 0, 386, 547);
+								contentPane.add(PanelResumenDomicilio);
+								PanelResumenDomicilio.setLayout(null);
+								
+								textDireccion = new JTextField();
+								textDireccion.setBounds(215, 464, 86, 20);
+								PanelResumenDomicilio.add(textDireccion);
+								textDireccion.setColumns(10);
+								
+								lblDireccion = new JLabel("DIRECCION:");
+								lblDireccion.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblDireccion.setBounds(72, 467, 104, 14);
+								PanelResumenDomicilio.add(lblDireccion);
+								
+								lblCostePedido_1 = new JLabel("\r\n");
+								lblCostePedido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblCostePedido_1.setBounds(186, 375, 45, 13);
+								PanelResumenDomicilio.add(lblCostePedido_1);
+								
+								lblResumenPedido_1 = new JLabel("RESUMEN DEL PEDIDO");
+								lblResumenPedido_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+								lblResumenPedido_1.setBounds(55, 46, 285, 43);
+								PanelResumenDomicilio.add(lblResumenPedido_1);
+								
+								btnNewButton_1 = new JButton("New button");
+								btnNewButton_1.setBounds(310, 229, 66, 61);
+								PanelResumenDomicilio.add(btnNewButton_1);
+								
+								lblBurgerElegido_1 = new JLabel("");
+								lblBurgerElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblBurgerElegido_1.setBounds(117, 190, 144, 20);
+								PanelResumenDomicilio.add(lblBurgerElegido_1);
+								
+								lblBebidaElegida_1 = new JLabel("");
+								lblBebidaElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblBebidaElegida_1.setBounds(117, 219, 144, 20);
+								PanelResumenDomicilio.add(lblBebidaElegida_1);
+								
+								lblPatataElegida_1 = new JLabel("");
+								lblPatataElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblPatataElegida_1.setBounds(117, 249, 144, 20);
+								PanelResumenDomicilio.add(lblPatataElegida_1);
+								
+								lblComplementoElegido_1 = new JLabel("");
+								lblComplementoElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblComplementoElegido_1.setBounds(117, 279, 144, 20);
+								PanelResumenDomicilio.add(lblComplementoElegido_1);
+								
+								lblPrecioResumen_1 = new JLabel("PRECIO:");
+								lblPrecioResumen_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblPrecioResumen_1.setBounds(117, 371, 66, 20);
+								PanelResumenDomicilio.add(lblPrecioResumen_1);
+								
+								btnVolver3_1 = new JButton("<---");
+								btnVolver3_1.setBounds(22, 495, 85, 21);
+								PanelResumenDomicilio.add(btnVolver3_1);
+								
+								lblPergaminoPedido_1 = new JLabel(new ImageIcon("imagenes/Pergamino.png"));
+								lblPergaminoPedido_1.setBounds(62, 130, 238, 331);
+								PanelResumenDomicilio.add(lblPergaminoPedido_1);
+								
+								lblFotoFondoResumen_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+								lblFotoFondoResumen_1.setBounds(0, 0, 386, 547);
+								PanelResumenDomicilio.add(lblFotoFondoResumen_1);
+								PanelDomicilio2.setBounds(0, 0, 386, 547);
+								contentPane.add(PanelDomicilio2);
+								PanelDomicilio2.setLayout(null);
+								
+								lblCruz = new JLabel(new ImageIcon("imagenes/CruzRoja.png"));
+								lblCruz.setBounds(138, 254, 118, 122);
+								PanelDomicilio2.add(lblCruz);
+								
+								lblComp_1 = new JLabel(new ImageIcon("imagenes/Complementos.png"));
+								lblComp_1.setBounds(146, 266, 100, 82);
+								PanelDomicilio2.add(lblComp_1);
+								
+								lblBebida_1 = new JLabel(new ImageIcon("imagenes/Bebida.png"));
+								lblBebida_1.setBounds(252, 118, 100, 82);
+								PanelDomicilio2.add(lblBebida_1);
+								
+								lblPatata_1 = new JLabel(new ImageIcon("imagenes/Patatas.png"));
+								lblPatata_1.setBounds(32, 118, 100, 82);
+								PanelDomicilio2.add(lblPatata_1);
+								
+								cbPatatas = new JComboBox();
+								cbPatatas.setBounds(32, 210, 100, 21);
+								PanelDomicilio2.add(cbPatatas);
+								
+								cbBebida = new JComboBox();
+								cbBebida.setBounds(252, 210, 100, 21);
+								PanelDomicilio2.add(cbBebida);
+								
+								btnSig_1 = new JButton("--->");
+								btnSig_1.setBounds(267, 432, 85, 21);
+								PanelDomicilio2.add(btnSig_1);
+								
+								btnRetroceso_1 = new JButton("<---");
+								btnRetroceso_1.setBounds(32, 432, 85, 21);
+								PanelDomicilio2.add(btnRetroceso_1);
+								
+								lblSoloTienda = new JLabel("SOLO EN TIENDA");
+								lblSoloTienda.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblSoloTienda.setBounds(148, 387, 108, 21);
+								PanelDomicilio2.add(lblSoloTienda);
+								
+								lblFotoFondoPedido2_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+								lblFotoFondoPedido2_1.setBounds(0, 0, 386, 547);
+								PanelDomicilio2.add(lblFotoFondoPedido2_1);
+								PanelDomicilio.setBounds(0, 0, 386, 547);
+								contentPane.add(PanelDomicilio);
+								PanelDomicilio.setLayout(null);
+								
+								lblBurgerVerde_1 = new JLabel(new ImageIcon("imagenes/BurgerV.png"));
+								lblBurgerVerde_1.setBounds(246, 130, 93, 74);
+								PanelDomicilio.add(lblBurgerVerde_1);
+								
+								lblBurgerRoja_1 = new JLabel(new ImageIcon("imagenes/BurgerR.png"));
+								lblBurgerRoja_1.setBounds(43, 130, 81, 74);
+								PanelDomicilio.add(lblBurgerRoja_1);
+								
+								CbVerde_1 = new JComboBox();
+								CbVerde_1.setBounds(256, 219, 93, 21);
+								PanelDomicilio.add(CbVerde_1);
+								
+								CbRoja_1 = new JComboBox();
+								CbRoja_1.setBounds(43, 219, 93, 21);
+								PanelDomicilio.add(CbRoja_1);
+								
+								lblPan_1 = new JLabel("PAN:");
+								lblPan_1.setBounds(55, 346, 45, 13);
+								PanelDomicilio.add(lblPan_1);
+								
+								lblCarne_1 = new JLabel("CARNE:");
+								lblCarne_1.setBounds(55, 379, 45, 13);
+								PanelDomicilio.add(lblCarne_1);
+								
+								lblQueso_1 = new JLabel("QUESO:");
+								lblQueso_1.setBounds(55, 417, 45, 13);
+								PanelDomicilio.add(lblQueso_1);
+								
+								lblExtras_1 = new JLabel("EXTRAS:");
+								lblExtras_1.setBounds(55, 453, 45, 13);
+								PanelDomicilio.add(lblExtras_1);
+								
+								lblEligeTP_1 = new JLabel("ELIGE TUS \r\nPRODUCTOS");
+								lblEligeTP_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+								lblEligeTP_1.setBounds(50, 41, 295, 63);
+								PanelDomicilio.add(lblEligeTP_1);
+								
+								lblPanR_1 = new JLabel("");
+								lblPanR_1.setBounds(123, 346, 172, 13);
+								PanelDomicilio.add(lblPanR_1);
+								
+								lblCarneR_1 = new JLabel("");
+								lblCarneR_1.setBounds(122, 379, 173, 13);
+								PanelDomicilio.add(lblCarneR_1);
+								
+								lblQuesoR_1 = new JLabel("");
+								lblQuesoR_1.setBounds(122, 417, 173, 13);
+								PanelDomicilio.add(lblQuesoR_1);
+								
+								lblExtraR_1 = new JLabel("");
+								lblExtraR_1.setBounds(123, 453, 172, 13);
+								PanelDomicilio.add(lblExtraR_1);
+								
+								lblTablon_1 = new JLabel(new ImageIcon("imagenes/TablonFondo.png"));
+								lblTablon_1.setBounds(31, 318, 314, 191);
+								PanelDomicilio.add(lblTablon_1);
+								
+								btnAvanzar_1 = new JButton("--->");
+								btnAvanzar_1.setBounds(254, 270, 85, 21);
+								PanelDomicilio.add(btnAvanzar_1);
+								
+								btnRetroceder_1 = new JButton("<---");
+								btnRetroceder_1.setBounds(51, 270, 85, 21);
+								PanelDomicilio.add(btnRetroceder_1);
+								
+								lblFotoFondoDomicilio = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+								lblFotoFondoDomicilio.setBounds(0, 0, 384, 545);
+								PanelDomicilio.add(lblFotoFondoDomicilio);
+								DomicilioOLocal.setBounds(0, 0, 400, 584);
+								contentPane.add(DomicilioOLocal);
+								DomicilioOLocal.setLayout(null);
+								
+										btnPedirEnLocal = new JButton("PEDIR AQUÍ");
+										btnPedirEnLocal.setFont(new Font("Tahoma", Font.PLAIN, 25));
+										btnPedirEnLocal.setBounds(39, 317, 308, 60);
+										DomicilioOLocal.add(btnPedirEnLocal);
+										
+												btnPedirDomicilio = new JButton("PEDIR A DOMICILIO");
+												
+														btnPedirDomicilio.setFont(new Font("Tahoma", Font.PLAIN, 25));
+														btnPedirDomicilio.setBounds(40, 160, 308, 60);
+														DomicilioOLocal.add(btnPedirDomicilio);
+														
+																logoPequeComprar = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
+																logoPequeComprar.setBounds(153, 1, 96, 79);
+																DomicilioOLocal.add(logoPequeComprar);
+																
+																		foticocasaComprar = new JLabel(new ImageIcon("imagenes/foticocasa.png"));
+																		foticocasaComprar.setBounds(10, 505, 35, 35);
+																		DomicilioOLocal.add(foticocasaComprar);
+																		
+																				foticoperfilComprar = new JLabel(new ImageIcon("imagenes/foticoperfil.png"));
+																				foticoperfilComprar.setBounds(122, 505, 35, 35);
+																				DomicilioOLocal.add(foticoperfilComprar);
+																				
+																						foticodescuentoComprar = new JLabel(new ImageIcon("imagenes/foticodescuento.png"));
+																						foticodescuentoComprar.setBounds(340, 505, 35, 35);
+																						DomicilioOLocal.add(foticodescuentoComprar);
+																						
+																								foticocarroComprar = new JLabel(new ImageIcon("imagenes/foticocarro.png"));
+																								foticocarroComprar.setBounds(240, 505, 35, 35);
+																								DomicilioOLocal.add(foticocarroComprar);
+																								
+																										lblTablonDeAbajoComprar = new JLabel(new ImageIcon("imagenes/tablonmaderaa.png"));
+																										lblTablonDeAbajoComprar.setBounds(0, 491, 400, 61);
+																										DomicilioOLocal.add(lblTablonDeAbajoComprar);
+																										
+																												lblFotoFondoMenuPrincipal_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																												lblFotoFondoMenuPrincipal_1.setBounds(0, 0, 400, 584);
+																												DomicilioOLocal.add(lblFotoFondoMenuPrincipal_1);
+						PanelAnadirProd.setLayout(null);
+						PanelAnadirProd.setBounds(0, 0, 386, 547);
+						contentPane.add(PanelAnadirProd);
+						
+						
+						
+								// panel ------------------------- ?¿?¿?¿¿?¿?
+								lblAnadirProd = new JLabel("AÑADIR PRODUCTO");
+								lblAnadirProd.setFont(new Font("Tahoma", Font.BOLD, 20));
+								lblAnadirProd.setBounds(85, 113, 208, 42);
+								PanelAnadirProd.add(lblAnadirProd);
+								
+										lblAdministradores = new JLabel("SOLO ADMINISTRADORES");
+										lblAdministradores.setFont(new Font("Tahoma", Font.BOLD, 25));
+										lblAdministradores.setBounds(30, 45, 330, 57);
+										PanelAnadirProd.add(lblAdministradores);
+										
+												lblNombreProd = new JLabel("NOMBRE:");
+												lblNombreProd.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+												lblNombreProd.setBounds(58, 177, 70, 27);
+												PanelAnadirProd.add(lblNombreProd);
+												
+														textNombreProd = new JTextField();
+														textNombreProd.setBounds(222, 180, 96, 19);
+														PanelAnadirProd.add(textNombreProd);
+														textNombreProd.setColumns(10);
+														
+																lblColor = new JLabel("COLOR:");
+																lblColor.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																lblColor.setBounds(58, 215, 70, 27);
+																PanelAnadirProd.add(lblColor);
+																
+																		textColor = new JTextField();
+																		textColor.setBounds(222, 218, 96, 19);
+																		PanelAnadirProd.add(textColor);
+																		textColor.setColumns(10);
+																		
+																				lblPanB = new JLabel("PAN:");
+																				lblPanB.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																				lblPanB.setBounds(58, 296, 70, 27);
+																				PanelAnadirProd.add(lblPanB);
+																				
+																						textPanB = new JTextField();
+																						textPanB.setBounds(222, 299, 96, 19);
+																						PanelAnadirProd.add(textPanB);
+																						textPanB.setColumns(10);
+																						
+																								lblCarneB = new JLabel("CARNE:");
+																								lblCarneB.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																								lblCarneB.setBounds(58, 334, 70, 27);
+																								PanelAnadirProd.add(lblCarneB);
+																								
+																										textCarneB = new JTextField();
+																										textCarneB.setBounds(222, 337, 96, 19);
+																										PanelAnadirProd.add(textCarneB);
+																										textCarneB.setColumns(10);
+																										
+																												btnAnadir = new JButton("ANADIR");
+																												
+																														btnAnadir.setBounds(243, 471, 113, 42);
+																														PanelAnadirProd.add(btnAnadir);
+																														
+																																btnCancelar = new JButton("CANCELAR");
+																																btnCancelar.addActionListener(new ActionListener() {
+																																	public void actionPerformed(ActionEvent e) {
+																																	}
+																																});
+																																btnCancelar.setBounds(45, 471, 113, 42);
+																																PanelAnadirProd.add(btnCancelar);
+																																
+																																lblPrecioB = new JLabel("PRECIO:");
+																																lblPrecioB.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																lblPrecioB.setBounds(58, 258, 70, 27);
+																																PanelAnadirProd.add(lblPrecioB);
+																																
+																																textPrecioB = new JTextField();
+																																textPrecioB.setBounds(222, 261, 96, 19);
+																																PanelAnadirProd.add(textPrecioB);
+																																textPrecioB.setColumns(10);
+																																
+																																lblExtraB = new JLabel("EXTRA:");
+																																lblExtraB.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																lblExtraB.setBounds(58, 410, 70, 27);
+																																PanelAnadirProd.add(lblExtraB);
+																																
+																																textExtraB = new JTextField();
+																																textExtraB.setColumns(10);
+																																textExtraB.setBounds(222, 413, 96, 19);
+																																PanelAnadirProd.add(textExtraB);
+																																
+																																textQuesoB = new JTextField();
+																																textQuesoB.setColumns(10);
+																																textQuesoB.setBounds(222, 375, 96, 19);
+																																PanelAnadirProd.add(textQuesoB);
+																																
+																																lblQuesoB = new JLabel("QUESO:");
+																																lblQuesoB.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																lblQuesoB.setBounds(58, 372, 70, 27);
+																																PanelAnadirProd.add(lblQuesoB);
+				PanelAdmin.setBounds(0, 0, 386, 545);
+				contentPane.add(PanelAdmin);
+				PanelAdmin.setLayout(null);
+				
+						lblAdministradores2 = new JLabel("SOLO ADMINISTRADORES");
+						lblAdministradores2.setFont(new Font("Tahoma", Font.BOLD, 25));
+						lblAdministradores2.setBounds(23, 35, 330, 57);
+						PanelAdmin.add(lblAdministradores2);
+						
+								btnEliminarProd = new JButton("ELIMINAR PRODUCTO");
+								btnEliminarProd.setBounds(50, 393, 285, 101);
+								PanelAdmin.add(btnEliminarProd);
+								
+								
 
-
-
-		// panel ------------------------- ?¿?¿?¿¿?¿?
-		lblAnadirProd = new JLabel("AÑADIR PRODUCTO");
-		lblAnadirProd.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblAnadirProd.setBounds(85, 77, 233, 42);
-		PanelAnadirProd.add(lblAnadirProd);
-
-		lblAdministradores = new JLabel("SOLO ADMINISTRADORES");
-		lblAdministradores.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblAdministradores.setBounds(30, 10, 330, 57);
-		PanelAnadirProd.add(lblAdministradores);
-
-		lblNombreProd = new JLabel("NOMBRE:");
-		lblNombreProd.setBounds(70, 132, 45, 13);
-		PanelAnadirProd.add(lblNombreProd);
-
-		textNombreProd = new JTextField();
-		textNombreProd.setBounds(222, 129, 96, 19);
-		PanelAnadirProd.add(textNombreProd);
-		textNombreProd.setColumns(10);
-
-		lblColor = new JLabel("COLOR:");
-		lblColor.setBounds(70, 189, 113, 13);
-		PanelAnadirProd.add(lblColor);
-
-		textColor = new JTextField();
-		textColor.setBounds(222, 186, 96, 19);
-		PanelAnadirProd.add(textColor);
-		textColor.setColumns(10);
-
-		lblPanB = new JLabel("PAN:");
-		lblPanB.setBounds(70, 275, 113, 13);
-		PanelAnadirProd.add(lblPanB);
-
-		textPanB = new JTextField();
-		textPanB.setBounds(222, 275, 96, 19);
-		PanelAnadirProd.add(textPanB);
-		textPanB.setColumns(10);
-
-		lblCarneB = new JLabel("CARNE:");
-		lblCarneB.setBounds(70, 301, 113, 13);
-		PanelAnadirProd.add(lblCarneB);
-
-		textCarneB = new JTextField();
-		textCarneB.setBounds(222, 298, 96, 19);
-		PanelAnadirProd.add(textCarneB);
-		textCarneB.setColumns(10);
-
-		btnAnadir = new JButton("ANADIR");
-
-		btnAnadir.setBounds(252, 449, 85, 21);
-		PanelAnadirProd.add(btnAnadir);
-
-		btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setBounds(58, 449, 85, 21);
-		PanelAnadirProd.add(btnCancelar);
-		
-		lblPrecioB = new JLabel("PRECIO:");
-		lblPrecioB.setBounds(70, 226, 45, 13);
-		PanelAnadirProd.add(lblPrecioB);
-		
-		textPrecioB = new JTextField();
-		textPrecioB.setBounds(222, 223, 96, 19);
-		PanelAnadirProd.add(textPrecioB);
-		textPrecioB.setColumns(10);
-		
-		lblExtraB = new JLabel("EXTRA:");
-		lblExtraB.setBounds(70, 360, 113, 13);
-		PanelAnadirProd.add(lblExtraB);
-		
-		textExtraB = new JTextField();
-		textExtraB.setColumns(10);
-		textExtraB.setBounds(222, 357, 96, 19);
-		PanelAnadirProd.add(textExtraB);
-		
-		textQuesoB = new JTextField();
-		textQuesoB.setColumns(10);
-		textQuesoB.setBounds(222, 334, 96, 19);
-		PanelAnadirProd.add(textQuesoB);
-		
-		lblQuesoB = new JLabel("QUESO:");
-		lblQuesoB.setBounds(70, 334, 113, 13);
-		PanelAnadirProd.add(lblQuesoB);
-		PanelCodPedido.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelCodPedido);
-		PanelCodPedido.setLayout(null);
-
-		lblPedidoCompletado = new JLabel("PEDIDO COMPLETADO");
-		lblPedidoCompletado.setBounds(85, 70, 223, 40);
-		PanelCodPedido.add(lblPedidoCompletado);
-
-		lblTextoCodigo = new JLabel("CODIGO:");
-		lblTextoCodigo.setBounds(84, 132, 91, 88);
-		PanelCodPedido.add(lblTextoCodigo);
-
-		lblCodigo = new JLabel("");
-		lblCodigo.setBounds(201, 132, 91, 88);
-		PanelCodPedido.add(lblCodigo);
-
-		lblNewLabel = new JLabel("RECOGER EN MOSTRADOR");
-		lblNewLabel.setBounds(58, 400, 250, 46);
-		PanelCodPedido.add(lblNewLabel);
-
-		lblMuchasGracias = new JLabel("MUCHAS GRACIAS");
-		lblMuchasGracias.setBounds(139, 457, 137, 25);
-		PanelCodPedido.add(lblMuchasGracias);
-
-		lblFotoFondoCod = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoCod.setBounds(0, 0, 386, 547);
-		PanelCodPedido.add(lblFotoFondoCod);
+								btnModificarProd = new JButton("MODIFICAR PRODUCTO");
+								btnModificarProd.setBounds(50, 270, 285, 101);
+								PanelAdmin.add(btnModificarProd);
+								
+										btnAnadirProd = new JButton("AÑADIR PRODUCTO");
+										btnAnadirProd.setBounds(50, 141, 285, 101);
+										PanelAdmin.add(btnAnadirProd);
+										
+										JLabel lblFotoFondoPAdmin = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+										lblFotoFondoPAdmin.setBounds(0, 0, 386, 545);
+										PanelAdmin.add(lblFotoFondoPAdmin);
 		PanelResumen.setBounds(0, 0, 386, 547);
 		contentPane.add(PanelResumen);
 		PanelResumen.setLayout(null);
@@ -448,162 +938,6 @@ public class Vista extends JFrame {
 		lblFotoFondoResumen = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoResumen.setBounds(0, 0, 386, 547);
 		PanelResumen.add(lblFotoFondoResumen);
-		PanelLocal2.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelLocal2);
-		PanelLocal2.setLayout(null);
-
-		lblComp = new JLabel(new ImageIcon("imagenes/Complementos.png"));
-		lblComp.setBounds(139, 240, 100, 82);
-		PanelLocal2.add(lblComp);
-
-		lblBebida = new JLabel(new ImageIcon("imagenes/Bebida.png"));
-		lblBebida.setBounds(252, 118, 100, 82);
-		PanelLocal2.add(lblBebida);
-
-		lblPatata = new JLabel(new ImageIcon("imagenes/Patatas.png"));
-		lblPatata.setBounds(32, 118, 100, 82);
-		PanelLocal2.add(lblPatata);
-
-		CbPatatas = new JComboBox();
-		CbPatatas.setBounds(32, 210, 100, 21);
-		PanelLocal2.add(CbPatatas);
-
-		CbBebida = new JComboBox();
-		CbBebida.setBounds(252, 210, 100, 21);
-		PanelLocal2.add(CbBebida);
-
-		CbComp = new JComboBox();
-		CbComp.setBounds(139, 329, 100, 21);
-		PanelLocal2.add(CbComp);
-
-		btnSig = new JButton("--->");
-		btnSig.setBounds(267, 432, 85, 21);
-		PanelLocal2.add(btnSig);
-
-		btnRetroceso = new JButton("<---");
-		btnRetroceso.setBounds(32, 432, 85, 21);
-		PanelLocal2.add(btnRetroceso);
-
-		lblFotoFondoPedido2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoPedido2.setBounds(0, 0, 386, 547);
-		PanelLocal2.add(lblFotoFondoPedido2);
-		PanelLocal.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelLocal);
-		PanelLocal.setLayout(null);
-
-		lblBurgerVerde = new JLabel(new ImageIcon("imagenes/BurgerV.png"));
-		lblBurgerVerde.setBounds(246, 110, 93, 74);
-		PanelLocal.add(lblBurgerVerde);
-
-		lblBurgerRoja = new JLabel(new ImageIcon("imagenes/BurgerR.png"));
-		lblBurgerRoja.setBounds(43, 110, 81, 74);
-		PanelLocal.add(lblBurgerRoja);
-
-		CbVerde = new JComboBox();
-		CbVerde.setBounds(246, 194, 93, 21);
-		PanelLocal.add(CbVerde);
-
-		CbRoja = new JComboBox();
-		CbRoja.setBounds(43, 194, 93, 21);
-		PanelLocal.add(CbRoja);
-
-		PanelLocal.add(CbVerde);
-
-		lblPan = new JLabel("PAN:");
-		lblPan.setBounds(55, 342, 45, 13);
-		PanelLocal.add(lblPan);
-
-		lblCarne = new JLabel("CARNE:");
-		lblCarne.setBounds(55, 375, 45, 13);
-		PanelLocal.add(lblCarne);
-
-		lblQueso = new JLabel("QUESO:");
-		lblQueso.setBounds(55, 413, 45, 13);
-		PanelLocal.add(lblQueso);
-
-		lblExtras = new JLabel("EXTRAS:");
-		lblExtras.setBounds(55, 449, 45, 13);
-		PanelLocal.add(lblExtras);
-
-		lblEligeTP = new JLabel("ELIGE TUS \r\nPRODUCTOS");
-		lblEligeTP.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblEligeTP.setBounds(50, 37, 295, 63);
-		PanelLocal.add(lblEligeTP);
-
-		lblPanR = new JLabel("");
-		lblPanR.setBounds(123, 342, 172, 13);
-		PanelLocal.add(lblPanR);
-
-		lblCarneR = new JLabel("");
-		lblCarneR.setBounds(122, 375, 173, 13);
-		PanelLocal.add(lblCarneR);
-
-		lblQuesoR = new JLabel("");
-		lblQuesoR.setBounds(122, 413, 173, 13);
-		PanelLocal.add(lblQuesoR);
-
-		lblExtraR = new JLabel("");
-		lblExtraR.setBounds(123, 449, 172, 13);
-		PanelLocal.add(lblExtraR);
-
-		lblTablon = new JLabel(new ImageIcon("imagenes/TablonFondo.png"));
-		lblTablon.setBounds(31, 314, 314, 191);
-		PanelLocal.add(lblTablon);
-
-		btnAvanzar = new JButton("--->");
-
-		btnAvanzar.setBounds(254, 266, 85, 21);
-		PanelLocal.add(btnAvanzar);
-
-		btnRetroceder = new JButton("<---");
-		btnRetroceder.setBounds(51, 266, 85, 21);
-		PanelLocal.add(btnRetroceder);
-
-		lblFotoFondoLocal = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoLocal.setBounds(0, 0, 386, 547);
-		PanelLocal.add(lblFotoFondoLocal);
-		DomicilioOLocal.setBounds(0, 0, 400, 584);
-		contentPane.add(DomicilioOLocal);
-		DomicilioOLocal.setLayout(null);
-
-		btnPedirEnLocal = new JButton("PEDIR AQUÍ");
-		btnPedirEnLocal.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnPedirEnLocal.setBounds(39, 317, 308, 60);
-		DomicilioOLocal.add(btnPedirEnLocal);
-
-		btnPedirDomicilio = new JButton("PEDIR A DOMICILIO");
-
-		btnPedirDomicilio.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnPedirDomicilio.setBounds(40, 160, 308, 60);
-		DomicilioOLocal.add(btnPedirDomicilio);
-
-		logoPequeComprar = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
-		logoPequeComprar.setBounds(153, 1, 96, 79);
-		DomicilioOLocal.add(logoPequeComprar);
-
-		foticocasaComprar = new JLabel(new ImageIcon("imagenes/foticocasa.png"));
-		foticocasaComprar.setBounds(10, 505, 35, 35);
-		DomicilioOLocal.add(foticocasaComprar);
-
-		foticoperfilComprar = new JLabel(new ImageIcon("imagenes/foticoperfil.png"));
-		foticoperfilComprar.setBounds(122, 505, 35, 35);
-		DomicilioOLocal.add(foticoperfilComprar);
-
-		foticodescuentoComprar = new JLabel(new ImageIcon("imagenes/foticodescuento.png"));
-		foticodescuentoComprar.setBounds(340, 505, 35, 35);
-		DomicilioOLocal.add(foticodescuentoComprar);
-
-		foticocarroComprar = new JLabel(new ImageIcon("imagenes/foticocarro.png"));
-		foticocarroComprar.setBounds(240, 505, 35, 35);
-		DomicilioOLocal.add(foticocarroComprar);
-
-		lblTablonDeAbajoComprar = new JLabel(new ImageIcon("imagenes/tablonmaderaa.png"));
-		lblTablonDeAbajoComprar.setBounds(0, 491, 400, 61);
-		DomicilioOLocal.add(lblTablonDeAbajoComprar);
-
-		lblFotoFondoMenuPrincipal_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoMenuPrincipal_1.setBounds(0, 0, 400, 584);
-		DomicilioOLocal.add(lblFotoFondoMenuPrincipal_1);
 
 		// ------------------- PANEL INICIO SESIÓN -------------------
 		PanelInicioSesion = new JPanel();
@@ -942,26 +1276,6 @@ public class Vista extends JFrame {
 		lblFotoFondoContacto = new JLabel(new ImageIcon("imagenes/CONTACTO.png"));
 		lblFotoFondoContacto.setBounds(-10, 0, 400, 584);
 		Contacto.add(lblFotoFondoContacto);
-		PanelAdmin.setBounds(0, 0, 386, 545);
-		contentPane.add(PanelAdmin);
-		PanelAdmin.setLayout(null);
-
-		lblAdministradores2 = new JLabel("SOLO ADMINISTRADORES");
-		lblAdministradores2.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblAdministradores2.setBounds(23, 35, 330, 57);
-		PanelAdmin.add(lblAdministradores2);
-
-		btnEliminarProd = new JButton("ELIMINAR PRODUCTO");
-		btnEliminarProd.setBounds(50, 393, 285, 101);
-		PanelAdmin.add(btnEliminarProd);
-
-		btnModificarProd = new JButton("MODIFICAR PRODUCTO");
-		btnModificarProd.setBounds(50, 270, 285, 101);
-		PanelAdmin.add(btnModificarProd);
-
-		btnAnadirProd = new JButton("AÑADIR PRODUCTO");
-		btnAnadirProd.setBounds(50, 141, 285, 101);
-		PanelAdmin.add(btnAnadirProd);
 
 
 
