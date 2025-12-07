@@ -453,6 +453,7 @@ public class Controlador {
         vista.btnPedirEnLocal.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
+        		actualizarComidas();
         		vista.DomicilioOLocal.setVisible(false);
 				vista.PanelLocal.setVisible(true);
 				
@@ -463,20 +464,13 @@ public class Controlador {
         //BOTON PARA IR DESDE PODIDOOLOCAL A LA SECCION A DOMICILIO
         vista.btnPedirDomicilio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				actualizarComidas();
 				vista.DomicilioOLocal.setVisible(false);
 				vista.PanelDomicilio.setVisible(true);
 				
 				
-				vista.CbRoja_1.addItem(c1);
-				vista.CbVerde_1.addItem(c2);
-				vista.CbRoja_1.addItem(c3);
-				vista.CbVerde_1.addItem(c4);
-				vista.CbRoja_1.addItem(c5);
-				vista.CbVerde_1.addItem(c6);
-				vista.CbRoja_1.addItem(c7);
-				vista.CbVerde_1.addItem(c8);
-				vista.CbRoja_1.addItem(c9);
-				vista.CbRoja_1.addItem(c10);
+				
 				
 			}
 		});
@@ -609,6 +603,22 @@ public class Controlador {
 			}
 		});
         
+     // CUANDO EL USUARIO ELIGE LA BEBIDA A DOMICILIO
+        vista.cbBebida.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				Bebida bebida = (Bebida) vista.cbBebida.getSelectedItem();
+				if (bebida == null) return;
+				
+				idBebida = bebida.getId();
+				nombreBebida = bebida.getNombre();
+				costeBebida = bebida.getPrecio();
+
+				
+			}
+		});
+        
         // CUANDO EL USUARIO ELIGE LAS PATATAS
         vista.CbPatatas.addActionListener(new ActionListener() {
         	@Override
@@ -638,6 +648,18 @@ public class Controlador {
         	}
         });
 			
+     // CUANDO EL USUARIO ELIGE EL COMPLEMENTO A DOMICILIO
+        vista.cbPatatas.addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		Patata patata = (Patata) vista.cbPatatas.getSelectedItem();
+				if (patata == null) return;
+				
+				idPatata = patata.getIdPatata();
+				nombrePatata = patata.getNombre();
+				costePatata = patata.getPrecio();
+        	}
+        });
         
         //BOTON AVANZAR PEDIDO
         vista.btnAvanzar.addActionListener(new ActionListener() {
@@ -811,7 +833,7 @@ public class Controlador {
 				String indiceComida ="c" + Integer.toString(numComida);
 				int colorComida = Integer.parseInt(vista.textColor.getText());
 				double precioComida = Double.parseDouble(vista.textPrecioB.getText());
-				String nombreComida = vista.textNombre.getText();
+				String nombreComida = vista.textNombreProd.getText();
 				String panComida = vista.textPanB.getText();
 				String carneComida = vista.textCarneB.getText();
 				String quesoComida = vista.textQuesoB.getText();
@@ -822,8 +844,12 @@ public class Controlador {
 				
 				if(colorComida == 1) {
 					vista.CbRoja.addItem(nuevaComida);
+					vista.CbRoja_1.addItem(nuevaComida);
+					
 				} else if (colorComida == 2) {
 					vista.CbVerde.addItem(nuevaComida);
+					vista.CbVerde_1.addItem(nuevaComida);
+					vista.CbVerde_1.getSelectedItem().toString();
 					
 				}else {
 					JOptionPane.showMessageDialog(vista, "El color debe ser 1 (Roja) o 2 (Verde)");
@@ -833,7 +859,7 @@ public class Controlador {
 				
 				listaComidas.put(numComida, nuevaComida);
 				
-				
+				actualizarComidas();
 				
 				
 				JOptionPane.showMessageDialog(vista, "Producto añadido correctamente");
@@ -843,6 +869,8 @@ public class Controlador {
 			
 				
 			}
+
+			
 		});
         
       //BOTON ELIMINAR PRODUCTO DESDE LA VISTA DE ADMINISTRADOR
@@ -904,6 +932,15 @@ public class Controlador {
 			}
 		});
         
+        //CANCELAR AÑADIR PRODUCTO
+        vista.btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				vista.PanelAnadirProd.setVisible(false);
+				vista.PanelAdmin.setVisible(true);
+			}
+		});
+        
         
         //CAMBIAR A VISTA ELIMINAR PRODUCTO DESDE ADMINISTRADOR
         
@@ -921,6 +958,7 @@ public class Controlador {
 				vista.PanelCodDomicilio.setVisible(false);
 				vista.PanelMenuPrincipal.setVisible(true);
 				vista.PanelResumenDomicilio.setVisible(false);
+				vista.PanelResumen.setVisible(false);
 			}
 		});
         
@@ -930,9 +968,52 @@ public class Controlador {
 				vista.PanelCodPedido.setVisible(false);
 				vista.PanelMenuPrincipal.setVisible(true);
 				vista.PanelResumen.setVisible(false);
+				vista.PanelResumenDomicilio.setVisible(false);
 			}
 		});
         
+        
+        //BOTON SALIR DEL PANEL ADMIN
+        vista.btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelAdmin.setVisible(false);
+				vista.PanelInicioSesion.setVisible(true);
+			}
+		});
+        
+        //BOTON IR A MODIFICAR PRODUCTO DESDE PANEL ADMIN
+        vista.btnModificarProd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelAdmin.setVisible(false);
+				vista.PanelModificarProd.setVisible(true);
+				
+				
+				
+				
+				
+			}
+
+		});
+
     }
+    public void actualizarComidas() {
+		
+		 vista.CbRoja.removeAllItems();
+        vista.CbVerde.removeAllItems();
+        vista.CbRoja_1.removeAllItems();
+        vista.CbVerde_1.removeAllItems();
+
+        // Rellenar desde la lista "oficial"
+        for (Comida c : listaComidas.values()) {
+            if (c.getColor() == 1) {
+                vista.CbRoja.addItem(c);
+                vista.CbRoja_1.addItem(c);
+            } else if (c.getColor() == 2) {
+                vista.CbVerde.addItem(c);
+                vista.CbVerde_1.addItem(c);
+            }
+        }
+		
+	}
 }
 
