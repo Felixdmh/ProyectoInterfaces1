@@ -20,20 +20,15 @@ public class Vista extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public JPanel contentPane;
-
-	// Paneles
+	
 	public JPanel PanelInicioSesion;
 	public JPanel PanelMenuPrincipal;
 	public JPanel PanelRegistro;
-
-	// Componentes Inicio Sesión
 	public JLabel lblCuenta, lblUsuario, lblContraseña, lblUsuarioFoto, lblContraseñaFoto, lblFondoCuenta, lblFotoFondo, lblGif;
 	public JTextField txtUsuario;
 	public JPasswordField passwordField;
 	public JButton btnReg, btnInSes;
 	public JButton btnAdmin;
-
-	// Componentes Menú Principal
 	public JLabel LogoPeque;
 	public JButton btnPideYa;
 	public JTextField textNombre;
@@ -47,8 +42,6 @@ public class Vista extends JFrame {
 	public JLabel foticoperfil;
 	public JLabel foticodescuento;
 	public JLabel foticocarro;
-
-	// Componentes Registro
 	public JButton btnValidar;
 	public JPanel PanelAdmin;
 	public JButton btnEliminarProd;
@@ -122,8 +115,6 @@ public class Vista extends JFrame {
 	public JLabel lblCarneR;
 	public JLabel lblQuesoR;
 	public JLabel lblExtraR;
-
-	//componentes panel añadir producto
 	public JLabel lblTablon;
 	public JButton btnAvanzar;
 	public JButton btnRetroceder;
@@ -228,8 +219,6 @@ public class Vista extends JFrame {
 	public JLabel lblFotoFondoCod_1;
 	public JButton btnMenuPrincipalDomicilio;
 	public JButton btnMenuPrincipalLocal;
-	public JLabel logoPeque_1;
-	public JLabel logoPeque_2;
 	public JLabel lblCompletaMenu;
 	public JLabel lblFotoFondoAnadirProd;
 	public JLabel lblAdministradores2_1;
@@ -240,23 +229,45 @@ public class Vista extends JFrame {
 	public JButton btnSalir;
 	public JPanel PanelModificarProd;
 	public JLabel lblFotoFondoModificar;
-	private JLabel lblAdministradores2_3;
-	private JLabel lblTablonAdmin_3;
-	private JLabel lblModificarProd;
-	private JLabel lblPan_2;
-	private JLabel lblCarne_2;
-	private JLabel lblQueso_2;
-	private JLabel lblExtras_2;
-	private JLabel lblPanR_2;
-	private JLabel lblCarneR_2;
-	private JLabel lblQuesoR_2;
-	private JLabel lblExtraR_2;
-	private JLabel lblPrecioProd;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	public JLabel lblAdministradores2_3;
+	public JLabel lblTablonAdmin_3;
+	public JLabel lblModificarProd;
+	public JLabel lblPan_2;
+	public JLabel lblCarne_2;
+	public JLabel lblQueso_2;
+	public JLabel lblExtras_2;
+	public JLabel lblPanR_2;
+	public JLabel lblCarneR_2;
+	public JLabel lblQuesoR_2;
+	public JLabel lblExtraR_2;
+	public JLabel lblPrecioProd;
+	public JTextField textPanMod;
+	public JTextField textCarneMod;
+	public JTextField textQuesoMod;
+	public JTextField textExtraMod;
+	public JTextField textPrecioMod;
+	public JButton btnCancelarModificacion;
+	public JButton btnConfirmarModificacion;
+	public JComboBox comboBoxM;
+	public JLabel lblPrecioR;
+	public JLabel lblPrecioProd_1;
+	public JLabel lblPan_2_1;
+	public JLabel lblCarne_2_1;
+	public JLabel lblQueso_2_1;
+	public JLabel lblExtras_2_1;
+	public JButton btnCancelarRegistro;
+	public JLabel lblAdministradores2_3_1;
+	public JLabel lblTablonAdmin_3_1;
+	public JLabel lblNombre;
+	public JLabel lblContrasena;
+	public JLabel lblRepetirContrasena;
+	public JLabel lblVerificacion;
+	public JLabel lblFotoFondo2;
+	public JLabel lblCorreo;
+	public JLabel lblFotoFondoPAdmin;
+	public JLabel lblTablonAdmin;
+	private JLabel lblCompletaMenu_1;
+	
 
 
 	public static void main(String[] args) {
@@ -282,9 +293,6 @@ public class Vista extends JFrame {
 		lblEspec = new JLabel("ESPECIFICACIONES");
 		lblEspec.setBounds(91, 288, 204, 29);
 
-		PanelResumen = new JPanel();
-		PanelResumen.setVisible(false);
-
 
 		// PANEL PEDIR COMPRAR                                                 
 		DomicilioOLocal = new JPanel();
@@ -292,18 +300,6 @@ public class Vista extends JFrame {
 
 		PanelDomicilio = new JPanel();
 		PanelDomicilio.setVisible(false);
-
-		PanelDomicilio2 = new JPanel();
-		PanelDomicilio2.setVisible(false);
-
-		PanelResumenDomicilio = new JPanel();
-		PanelResumenDomicilio.setVisible(false);
-
-		PanelCodPedido = new JPanel();
-		PanelCodPedido.setVisible(false);
-
-		PanelCodDomicilio = new JPanel();
-		PanelCodDomicilio.setVisible(false);
 
 		PanelLocal2 = new JPanel();
 		PanelLocal2.setVisible(false);
@@ -324,11 +320,102 @@ public class Vista extends JFrame {
 		
 		PanelModificarProd = new JPanel();
 		PanelModificarProd.setVisible(false);
+		
+		
+		
+		
+		
+		
+				//PANEL REGISTRO
+				PanelRegistro = new JPanel();
+				PanelRegistro.setVisible(false);
+				PanelRegistro.setBounds(0, 0, 384, 545);
+				contentPane.add(PanelRegistro);
+				PanelRegistro.setLayout(null);
+								
+								btnCancelarRegistro = new JButton("CANCELAR");
+								btnCancelarRegistro.setBounds(68, 449, 253, 41);
+								PanelRegistro.add(btnCancelarRegistro);
+								
+								lblAdministradores2_3_1 = new JLabel("REGISTRO");
+								lblAdministradores2_3_1.setForeground(Color.BLACK);
+								lblAdministradores2_3_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+								lblAdministradores2_3_1.setBounds(127, 30, 132, 69);
+								PanelRegistro.add(lblAdministradores2_3_1);
+								
+								lblTablonAdmin_3_1 = new JLabel(new ImageIcon("imagenes/TablonAdmin.png"));
+								lblTablonAdmin_3_1.setBounds(0, 30, 386, 69);
+								PanelRegistro.add(lblTablonAdmin_3_1);
+						
+								lblNombre = new JLabel("NOMBRE");
+								lblNombre.setFont(new Font("Tempus Sans ITC", Font.BOLD, 15));
+								lblNombre.setBounds(156, 133, 69, 14);
+								PanelRegistro.add(lblNombre);
+								
+										textNombre = new JTextField();
+										textNombre.setBounds(40, 158, 307, 20);
+										PanelRegistro.add(textNombre);
+										textNombre.setColumns(10);
+										
+												lblCorreo = new JLabel("CORREO ELECTRONICO");
+												lblCorreo.setFont(new Font("Tempus Sans ITC", Font.BOLD, 15));
+												lblCorreo.setBounds(106, 189, 181, 14);
+												PanelRegistro.add(lblCorreo);
+												
+														textCorreo = new JTextField();
+														textCorreo.setBounds(40, 214, 307, 20);
+														PanelRegistro.add(textCorreo);
+														textCorreo.setColumns(10);
+														
+																lblContrasena = new JLabel("CONTRASEÑA");
+																lblContrasena.setFont(new Font("Tempus Sans ITC", Font.BOLD, 15));
+																lblContrasena.setBounds(134, 245, 103, 14);
+																PanelRegistro.add(lblContrasena);
+																
+																		textContrasena = new JTextField();
+																		textContrasena.setBounds(40, 268, 307, 20);
+																		PanelRegistro.add(textContrasena);
+																		textContrasena.setColumns(10);
+																		
+																				lblRepetirContrasena = new JLabel("REPETIR CONTRASEÑA");
+																				lblRepetirContrasena.setFont(new Font("Tempus Sans ITC", Font.BOLD, 15));
+																				lblRepetirContrasena.setBounds(114, 299, 173, 14);
+																				PanelRegistro.add(lblRepetirContrasena);
+																				
+																						textRepetirContrasena = new JTextField();
+																						textRepetirContrasena.setBounds(40, 324, 307, 20);
+																						PanelRegistro.add(textRepetirContrasena);
+																						textRepetirContrasena.setColumns(10);
+																						
+																								lblVerificacion = new JLabel("VERIFICACION");
+																								lblVerificacion.setFont(new Font("Tempus Sans ITC", Font.BOLD, 15));
+																								lblVerificacion.setBounds(92, 375, 120, 14);
+																								PanelRegistro.add(lblVerificacion);
+																								
+																										btnValidar = new JButton("");
+																										btnValidar.setBounds(238, 366, 38, 34);
+																										PanelRegistro.add(btnValidar);
+																										
+																												lblFotoFondo2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																												lblFotoFondo2.setBounds(0, 0, 390, 550);
+																												PanelRegistro.add(lblFotoFondo2);
 		PanelModificarProd.setBounds(0, 0, 386, 545);
 		contentPane.add(PanelModificarProd);
 		PanelModificarProd.setLayout(null);
 		
-		JLabel lblPrecioR = new JLabel("");
+		btnConfirmarModificacion = new JButton("MODIFICAR");
+		btnConfirmarModificacion.setBounds(257, 148, 89, 23);
+		PanelModificarProd.add(btnConfirmarModificacion);
+		
+		comboBoxM = new JComboBox();
+		comboBoxM.setBounds(133, 148, 102, 20);
+		PanelModificarProd.add(comboBoxM);
+		
+		btnCancelarModificacion = new JButton("CANCELAR");
+		btnCancelarModificacion.setBounds(30, 147, 89, 23);
+		PanelModificarProd.add(btnCancelarModificacion);
+		
+		lblPrecioR = new JLabel("");
 		lblPrecioR.setBounds(136, 329, 173, 13);
 		PanelModificarProd.add(lblPrecioR);
 		
@@ -388,72 +475,60 @@ public class Vista extends JFrame {
 		lblModificarProd.setBounds(68, 95, 241, 42);
 		PanelModificarProd.add(lblModificarProd);
 		
-		JLabel lblPrecioProd_1 = new JLabel("PRECIO:");
+		lblPrecioProd_1 = new JLabel("PRECIO:");
 		lblPrecioProd_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 11));
 		lblPrecioProd_1.setBounds(68, 515, 45, 13);
 		PanelModificarProd.add(lblPrecioProd_1);
 		
-		JLabel lblPan_2_1 = new JLabel("PAN:");
+		lblPan_2_1 = new JLabel("PAN:");
 		lblPan_2_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 11));
 		lblPan_2_1.setBounds(68, 375, 45, 13);
 		PanelModificarProd.add(lblPan_2_1);
 		
-		JLabel lblCarne_2_1 = new JLabel("CARNE:");
+		lblCarne_2_1 = new JLabel("CARNE:");
 		lblCarne_2_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 11));
 		lblCarne_2_1.setBounds(68, 408, 45, 13);
 		PanelModificarProd.add(lblCarne_2_1);
 		
-		JLabel lblQueso_2_1 = new JLabel("QUESO:");
+		lblQueso_2_1 = new JLabel("QUESO:");
 		lblQueso_2_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 11));
 		lblQueso_2_1.setBounds(68, 446, 45, 13);
 		PanelModificarProd.add(lblQueso_2_1);
 		
-		JLabel lblExtras_2_1 = new JLabel("EXTRAS:");
+		lblExtras_2_1 = new JLabel("EXTRAS:");
 		lblExtras_2_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 11));
 		lblExtras_2_1.setBounds(68, 482, 45, 13);
 		PanelModificarProd.add(lblExtras_2_1);
 		
-		textField = new JTextField();
-		textField.setBounds(136, 371, 173, 20);
-		PanelModificarProd.add(textField);
-		textField.setColumns(10);
+		textPanMod = new JTextField();
+		textPanMod.setBounds(136, 371, 173, 20);
+		PanelModificarProd.add(textPanMod);
+		textPanMod.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(136, 404, 173, 20);
-		PanelModificarProd.add(textField_1);
+		textCarneMod = new JTextField();
+		textCarneMod.setColumns(10);
+		textCarneMod.setBounds(136, 404, 173, 20);
+		PanelModificarProd.add(textCarneMod);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(136, 442, 173, 20);
-		PanelModificarProd.add(textField_2);
+		textQuesoMod = new JTextField();
+		textQuesoMod.setColumns(10);
+		textQuesoMod.setBounds(136, 442, 173, 20);
+		PanelModificarProd.add(textQuesoMod);
 		
-		textField_3 = new JTextField();
-		textField_3.setText("    ");
-		textField_3.setColumns(10);
-		textField_3.setBounds(136, 478, 173, 20);
-		PanelModificarProd.add(textField_3);
+		textExtraMod = new JTextField();
+		textExtraMod.setText("    ");
+		textExtraMod.setColumns(10);
+		textExtraMod.setBounds(136, 478, 173, 20);
+		PanelModificarProd.add(textExtraMod);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(136, 511, 173, 20);
-		PanelModificarProd.add(textField_4);
+		textPrecioMod = new JTextField();
+		textPrecioMod.setColumns(10);
+		textPrecioMod.setBounds(136, 511, 173, 20);
+		PanelModificarProd.add(textPrecioMod);
 		
 		lblFotoFondoModificar = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoModificar.setBounds(0, 0, 386, 545);
 		PanelModificarProd.add(lblFotoFondoModificar);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(133, 148, 102, 20);
-		PanelModificarProd.add(comboBox);
-		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(30, 147, 89, 23);
-		PanelModificarProd.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("New button");
-		btnNewButton_3.setBounds(257, 148, 89, 23);
-		PanelModificarProd.add(btnNewButton_3);
 		PanelAdmin.setBounds(0, 0, 386, 545);
 		contentPane.add(PanelAdmin);
 		PanelAdmin.setLayout(null);
@@ -482,11 +557,11 @@ public class Vista extends JFrame {
 		btnAnadirProd.setBounds(50, 141, 285, 101);
 		PanelAdmin.add(btnAnadirProd);
 
-		JLabel lblTablonAdmin = new JLabel(new ImageIcon("imagenes/TablonAdmin.png"));
+		lblTablonAdmin = new JLabel(new ImageIcon("imagenes/TablonAdmin.png"));
 		lblTablonAdmin.setBounds(0, 37, 386, 69);
 		PanelAdmin.add(lblTablonAdmin);
 
-		JLabel lblFotoFondoPAdmin = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+		lblFotoFondoPAdmin = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoPAdmin.setBounds(0, 0, 386, 545);
 		PanelAdmin.add(lblFotoFondoPAdmin);
 		PanelEliminarProd.setBounds(0, 0, 386, 547);
@@ -736,14 +811,6 @@ public class Vista extends JFrame {
 		btnRetroceder.setBounds(51, 266, 85, 21);
 		PanelLocal.add(btnRetroceder);
 
-		logoPeque_1 = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
-		logoPeque_1.setBounds(142, 0, 96, 79);
-		PanelLocal.add(logoPeque_1);
-
-		JLabel lblFondoEligProd = new JLabel(new ImageIcon("imagenes/Cartel.png"));
-		lblFondoEligProd.setBounds(43, 46, 314, 53);
-		PanelLocal.add(lblFondoEligProd);
-
 		lblFotoFondoLocal = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoLocal.setBounds(0, 0, 386, 547);
 		PanelLocal.add(lblFotoFondoLocal);
@@ -755,10 +822,6 @@ public class Vista extends JFrame {
 		lblCompletaMenu.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblCompletaMenu.setBounds(61, 59, 256, 48);
 		PanelLocal2.add(lblCompletaMenu);
-
-		logoPeque_2 = new JLabel(new ImageIcon("imagenes/logo_peque.png"));
-		logoPeque_2.setBounds(139, 0, 96, 79);
-		PanelLocal2.add(logoPeque_2);
 
 		lblComp = new JLabel(new ImageIcon("imagenes/Complementos.png"));
 		lblComp.setBounds(139, 240, 100, 82);
@@ -792,183 +855,87 @@ public class Vista extends JFrame {
 		btnRetroceso.setBounds(32, 432, 85, 21);
 		PanelLocal2.add(btnRetroceso);
 
-		JLabel lblFondoCuenta_1 = new JLabel(new ImageIcon("imagenes/qqq.png"));
-		lblFondoCuenta_1.setBounds(42, 59, 295, 48);
-		PanelLocal2.add(lblFondoCuenta_1);
-
 		lblFotoFondoPedido2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoPedido2.setBounds(0, 0, 386, 547);
 		PanelLocal2.add(lblFotoFondoPedido2);
-		PanelCodDomicilio.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelCodDomicilio);
-		PanelCodDomicilio.setLayout(null);
-
-		btnMenuPrincipalDomicilio = new JButton("VOLVER AL MENU");
-		btnMenuPrincipalDomicilio.setBounds(100, 482, 155, 23);
-		PanelCodDomicilio.add(btnMenuPrincipalDomicilio);
-
-		lblPedidoCompletado_1 = new JLabel("PEDIDO COMPLETADO");
-		lblPedidoCompletado_1.setBounds(85, 70, 223, 40);
-		PanelCodDomicilio.add(lblPedidoCompletado_1);
-
-		lblTextoCodigo_1 = new JLabel("CODIGO:");
-		lblTextoCodigo_1.setBounds(84, 132, 91, 88);
-		PanelCodDomicilio.add(lblTextoCodigo_1);
-
-		lblCodigo_1 = new JLabel("");
-		lblCodigo_1.setBounds(201, 132, 91, 88);
-		PanelCodDomicilio.add(lblCodigo_1);
-
-		lblDireccionPedido = new JLabel("");
-		lblDireccionPedido.setBounds(68, 401, 250, 46);
-		PanelCodDomicilio.add(lblDireccionPedido);
-
-		lblMuchasGracias_1 = new JLabel("MUCHAS GRACIAS");
-		lblMuchasGracias_1.setBounds(139, 457, 137, 25);
-		PanelCodDomicilio.add(lblMuchasGracias_1);
-
-		lblFotoFondoCod_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoCod_1.setBounds(0, 0, 386, 547);
-		PanelCodDomicilio.add(lblFotoFondoCod_1);
-		PanelCodPedido.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelCodPedido);
-		PanelCodPedido.setLayout(null);
-
-		btnMenuPrincipalLocal = new JButton("VOLVER AL MENU");
-		btnMenuPrincipalLocal.setBounds(109, 493, 155, 23);
-		PanelCodPedido.add(btnMenuPrincipalLocal);
-
-		lblPedidoCompletado = new JLabel("PEDIDO COMPLETADO");
-		lblPedidoCompletado.setBounds(85, 70, 223, 40);
-		PanelCodPedido.add(lblPedidoCompletado);
-
-		lblTextoCodigo = new JLabel("CODIGO:");
-		lblTextoCodigo.setBounds(84, 132, 91, 88);
-		PanelCodPedido.add(lblTextoCodigo);
-
-		lblCodigo = new JLabel("");
-		lblCodigo.setBounds(201, 132, 91, 88);
-		PanelCodPedido.add(lblCodigo);
-
-		lblNewLabel = new JLabel("RECOGER EN MOSTRADOR");
-		lblNewLabel.setBounds(58, 400, 250, 46);
-		PanelCodPedido.add(lblNewLabel);
-
-		lblMuchasGracias = new JLabel("MUCHAS GRACIAS");
-		lblMuchasGracias.setBounds(139, 457, 137, 25);
-		PanelCodPedido.add(lblMuchasGracias);
-
-		lblFotoFondoCod = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoCod.setBounds(0, 0, 386, 547);
-		PanelCodPedido.add(lblFotoFondoCod);
-		PanelResumenDomicilio.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelResumenDomicilio);
-		PanelResumenDomicilio.setLayout(null);
-
-		textDireccion = new JTextField();
-		textDireccion.setBounds(215, 464, 86, 20);
-		PanelResumenDomicilio.add(textDireccion);
-		textDireccion.setColumns(10);
-
-		lblDireccion = new JLabel("DIRECCION:");
-		lblDireccion.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblDireccion.setBounds(72, 467, 104, 14);
-		PanelResumenDomicilio.add(lblDireccion);
-
-		lblCostePedido_1 = new JLabel("\r\n");
-		lblCostePedido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblCostePedido_1.setBounds(186, 375, 45, 13);
-		PanelResumenDomicilio.add(lblCostePedido_1);
-
-		lblResumenPedido_1 = new JLabel("RESUMEN DEL PEDIDO");
-		lblResumenPedido_1.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblResumenPedido_1.setBounds(55, 46, 285, 43);
-		PanelResumenDomicilio.add(lblResumenPedido_1);
-
-		btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(310, 229, 66, 61);
-		PanelResumenDomicilio.add(btnNewButton_1);
-
-		lblBurgerElegido_1 = new JLabel("");
-		lblBurgerElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblBurgerElegido_1.setBounds(117, 190, 144, 20);
-		PanelResumenDomicilio.add(lblBurgerElegido_1);
-
-		lblBebidaElegida_1 = new JLabel("");
-		lblBebidaElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblBebidaElegida_1.setBounds(117, 219, 144, 20);
-		PanelResumenDomicilio.add(lblBebidaElegida_1);
-
-		lblPatataElegida_1 = new JLabel("");
-		lblPatataElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblPatataElegida_1.setBounds(117, 249, 144, 20);
-		PanelResumenDomicilio.add(lblPatataElegida_1);
-
-		lblComplementoElegido_1 = new JLabel("");
-		lblComplementoElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblComplementoElegido_1.setBounds(117, 279, 144, 20);
-		PanelResumenDomicilio.add(lblComplementoElegido_1);
-
-		lblPrecioResumen_1 = new JLabel("PRECIO:");
-		lblPrecioResumen_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblPrecioResumen_1.setBounds(117, 371, 66, 20);
-		PanelResumenDomicilio.add(lblPrecioResumen_1);
-
-		btnVolver3_1 = new JButton("<---");
-		btnVolver3_1.setBounds(22, 495, 85, 21);
-		PanelResumenDomicilio.add(btnVolver3_1);
-
-		lblPergaminoPedido_1 = new JLabel(new ImageIcon("imagenes/Pergamino.png"));
-		lblPergaminoPedido_1.setBounds(62, 130, 238, 331);
-		PanelResumenDomicilio.add(lblPergaminoPedido_1);
-
-		lblFotoFondoResumen_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoResumen_1.setBounds(0, 0, 386, 547);
-		PanelResumenDomicilio.add(lblFotoFondoResumen_1);
-		PanelDomicilio2.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelDomicilio2);
-		PanelDomicilio2.setLayout(null);
-
-		lblCruz = new JLabel(new ImageIcon("imagenes/CruzRoja.png"));
-		lblCruz.setBounds(138, 254, 118, 122);
-		PanelDomicilio2.add(lblCruz);
-
-		lblComp_1 = new JLabel(new ImageIcon("imagenes/Complementos.png"));
-		lblComp_1.setBounds(146, 266, 100, 82);
-		PanelDomicilio2.add(lblComp_1);
-
-		lblBebida_1 = new JLabel(new ImageIcon("imagenes/Bebida.png"));
-		lblBebida_1.setBounds(252, 118, 100, 82);
-		PanelDomicilio2.add(lblBebida_1);
-
-		lblPatata_1 = new JLabel(new ImageIcon("imagenes/Patatas.png"));
-		lblPatata_1.setBounds(32, 118, 100, 82);
-		PanelDomicilio2.add(lblPatata_1);
-
-		cbPatatas = new JComboBox();
-		cbPatatas.setBounds(32, 210, 100, 21);
-		PanelDomicilio2.add(cbPatatas);
-
-		cbBebida = new JComboBox();
-		cbBebida.setBounds(252, 210, 100, 21);
-		PanelDomicilio2.add(cbBebida);
-
-		btnSig_1 = new JButton("--->");
-		btnSig_1.setBounds(267, 432, 85, 21);
-		PanelDomicilio2.add(btnSig_1);
-
-		btnRetroceso_1 = new JButton("<---");
-		btnRetroceso_1.setBounds(32, 432, 85, 21);
-		PanelDomicilio2.add(btnRetroceso_1);
-
-		lblSoloTienda = new JLabel("SOLO EN TIENDA");
-		lblSoloTienda.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
-		lblSoloTienda.setBounds(148, 387, 108, 21);
-		PanelDomicilio2.add(lblSoloTienda);
-
-		lblFotoFondoPedido2_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoPedido2_1.setBounds(0, 0, 386, 547);
-		PanelDomicilio2.add(lblFotoFondoPedido2_1);
+		
+				PanelCodDomicilio = new JPanel();
+				PanelCodDomicilio.setVisible(false);
+				PanelCodDomicilio.setBounds(0, 0, 386, 547);
+				contentPane.add(PanelCodDomicilio);
+				PanelCodDomicilio.setLayout(null);
+				
+						btnMenuPrincipalDomicilio = new JButton("VOLVER AL MENU");
+						btnMenuPrincipalDomicilio.setBounds(78, 458, 241, 46);
+						PanelCodDomicilio.add(btnMenuPrincipalDomicilio);
+						
+								lblPedidoCompletado_1 = new JLabel("PEDIDO COMPLETADO");
+								lblPedidoCompletado_1.setFont(new Font("Viner Hand ITC", Font.BOLD, 25));
+								lblPedidoCompletado_1.setBounds(55, 65, 286, 40);
+								PanelCodDomicilio.add(lblPedidoCompletado_1);
+								
+										lblTextoCodigo_1 = new JLabel("CODIGO:");
+										lblTextoCodigo_1.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+										lblTextoCodigo_1.setBounds(78, 192, 91, 88);
+										PanelCodDomicilio.add(lblTextoCodigo_1);
+										
+												lblCodigo_1 = new JLabel("");
+												lblCodigo_1.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+												lblCodigo_1.setBounds(179, 192, 91, 88);
+												PanelCodDomicilio.add(lblCodigo_1);
+												
+														lblDireccionPedido = new JLabel("");
+														lblDireccionPedido.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+														lblDireccionPedido.setBounds(69, 329, 250, 32);
+														PanelCodDomicilio.add(lblDireccionPedido);
+														
+																lblMuchasGracias_1 = new JLabel("MUCHAS GRACIAS");
+																lblMuchasGracias_1.setFont(new Font("Viner Hand ITC", Font.BOLD, 30));
+																lblMuchasGracias_1.setBounds(44, 380, 301, 46);
+																PanelCodDomicilio.add(lblMuchasGracias_1);
+																
+																		lblFotoFondoCod_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																		lblFotoFondoCod_1.setBounds(0, 0, 386, 547);
+																		PanelCodDomicilio.add(lblFotoFondoCod_1);
+		
+				PanelCodPedido = new JPanel();
+				PanelCodPedido.setVisible(false);
+				PanelCodPedido.setBounds(0, 0, 386, 547);
+				contentPane.add(PanelCodPedido);
+				PanelCodPedido.setLayout(null);
+				
+						btnMenuPrincipalLocal = new JButton("VOLVER AL MENU");
+						btnMenuPrincipalLocal.setBounds(95, 452, 200, 40);
+						PanelCodPedido.add(btnMenuPrincipalLocal);
+						
+								lblPedidoCompletado = new JLabel("PEDIDO COMPLETADO");
+								lblPedidoCompletado.setFont(new Font("Viner Hand ITC", Font.BOLD, 25));
+								lblPedidoCompletado.setBounds(47, 81, 286, 40);
+								PanelCodPedido.add(lblPedidoCompletado);
+								
+										lblTextoCodigo = new JLabel("CODIGO:");
+										lblTextoCodigo.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+										lblTextoCodigo.setBounds(58, 200, 91, 88);
+										PanelCodPedido.add(lblTextoCodigo);
+										
+												lblCodigo = new JLabel("");
+												lblCodigo.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+												lblCodigo.setBounds(204, 200, 91, 88);
+												PanelCodPedido.add(lblCodigo);
+												
+														lblNewLabel = new JLabel("RECOGER EN MOSTRADOR");
+														lblNewLabel.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+														lblNewLabel.setBounds(58, 361, 275, 46);
+														PanelCodPedido.add(lblNewLabel);
+														
+																lblMuchasGracias = new JLabel("MUCHAS GRACIAS");
+																lblMuchasGracias.setFont(new Font("Viner Hand ITC", Font.BOLD, 20));
+																lblMuchasGracias.setBounds(95, 418, 200, 23);
+																PanelCodPedido.add(lblMuchasGracias);
+																
+																		lblFotoFondoCod = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																		lblFotoFondoCod.setBounds(0, 0, 386, 547);
+																		PanelCodPedido.add(lblFotoFondoCod);
 		PanelDomicilio.setBounds(0, 0, 386, 547);
 		contentPane.add(PanelDomicilio);
 		PanelDomicilio.setLayout(null);
@@ -1041,6 +1008,58 @@ public class Vista extends JFrame {
 		lblFotoFondoDomicilio = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoDomicilio.setBounds(0, 0, 384, 545);
 		PanelDomicilio.add(lblFotoFondoDomicilio);
+		
+				PanelDomicilio2 = new JPanel();
+				PanelDomicilio2.setVisible(false);
+				PanelDomicilio2.setBounds(0, 0, 386, 547);
+				contentPane.add(PanelDomicilio2);
+				PanelDomicilio2.setLayout(null);
+				
+				lblCompletaMenu_1 = new JLabel("COMPLETA TU MENU");
+				lblCompletaMenu_1.setFont(new Font("Tahoma", Font.BOLD, 25));
+				lblCompletaMenu_1.setBounds(65, 61, 256, 48);
+				PanelDomicilio2.add(lblCompletaMenu_1);
+				
+						lblCruz = new JLabel(new ImageIcon("imagenes/CruzRoja.png"));
+						lblCruz.setBounds(138, 254, 118, 122);
+						PanelDomicilio2.add(lblCruz);
+						
+								lblComp_1 = new JLabel(new ImageIcon("imagenes/Complementos.png"));
+								lblComp_1.setBounds(146, 266, 100, 82);
+								PanelDomicilio2.add(lblComp_1);
+								
+										lblBebida_1 = new JLabel(new ImageIcon("imagenes/Bebida.png"));
+										lblBebida_1.setBounds(252, 118, 100, 82);
+										PanelDomicilio2.add(lblBebida_1);
+										
+												lblPatata_1 = new JLabel(new ImageIcon("imagenes/Patatas.png"));
+												lblPatata_1.setBounds(32, 118, 100, 82);
+												PanelDomicilio2.add(lblPatata_1);
+												
+														cbPatatas = new JComboBox();
+														cbPatatas.setBounds(32, 210, 100, 21);
+														PanelDomicilio2.add(cbPatatas);
+														
+																cbBebida = new JComboBox();
+																cbBebida.setBounds(252, 210, 100, 21);
+																PanelDomicilio2.add(cbBebida);
+																
+																		btnSig_1 = new JButton("--->");
+																		btnSig_1.setBounds(267, 432, 85, 21);
+																		PanelDomicilio2.add(btnSig_1);
+																		
+																				btnRetroceso_1 = new JButton("<---");
+																				btnRetroceso_1.setBounds(32, 432, 85, 21);
+																				PanelDomicilio2.add(btnRetroceso_1);
+																				
+																						lblSoloTienda = new JLabel("SOLO EN TIENDA");
+																						lblSoloTienda.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																						lblSoloTienda.setBounds(148, 387, 108, 21);
+																						PanelDomicilio2.add(lblSoloTienda);
+																						
+																								lblFotoFondoPedido2_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																								lblFotoFondoPedido2_1.setBounds(0, 0, 386, 547);
+																								PanelDomicilio2.add(lblFotoFondoPedido2_1);
 		DomicilioOLocal.setBounds(0, 0, 400, 584);
 		contentPane.add(DomicilioOLocal);
 		DomicilioOLocal.setLayout(null);
@@ -1083,53 +1102,6 @@ public class Vista extends JFrame {
 		lblFotoFondoMenuPrincipal_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
 		lblFotoFondoMenuPrincipal_1.setBounds(0, 0, 400, 584);
 		DomicilioOLocal.add(lblFotoFondoMenuPrincipal_1);
-		PanelResumen.setBounds(0, 0, 386, 547);
-		contentPane.add(PanelResumen);
-		PanelResumen.setLayout(null);
-
-		lblCostePedido = new JLabel("\r\n");
-		lblCostePedido.setBounds(176, 375, 45, 13);
-		PanelResumen.add(lblCostePedido);
-
-		lblResumenPedido = new JLabel("RESUMEN DEL PEDIDO");
-		lblResumenPedido.setBounds(85, 91, 206, 26);
-		PanelResumen.add(lblResumenPedido);
-
-		btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(310, 229, 66, 61);
-		PanelResumen.add(btnNewButton);
-
-		lblBurgerElegido = new JLabel("");
-		lblBurgerElegido.setBounds(117, 190, 144, 20);
-		PanelResumen.add(lblBurgerElegido);
-
-		lblBebidaElegida = new JLabel("");
-		lblBebidaElegida.setBounds(117, 219, 144, 20);
-		PanelResumen.add(lblBebidaElegida);
-
-		lblPatataElegida = new JLabel("");
-		lblPatataElegida.setBounds(117, 249, 144, 20);
-		PanelResumen.add(lblPatataElegida);
-
-		lblComplementoElegido = new JLabel("");
-		lblComplementoElegido.setBounds(117, 279, 144, 20);
-		PanelResumen.add(lblComplementoElegido);
-
-		lblPrecioResumen = new JLabel("PRECIO:");
-		lblPrecioResumen.setBounds(117, 371, 49, 20);
-		PanelResumen.add(lblPrecioResumen);
-
-		btnVolver3 = new JButton("<---");
-		btnVolver3.setBounds(22, 495, 85, 21);
-		PanelResumen.add(btnVolver3);
-
-		lblPergaminoPedido = new JLabel(new ImageIcon("imagenes/Pergamino.png"));
-		lblPergaminoPedido.setBounds(62, 130, 238, 331);
-		PanelResumen.add(lblPergaminoPedido);
-
-		lblFotoFondoResumen = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondoResumen.setBounds(0, 0, 386, 547);
-		PanelResumen.add(lblFotoFondoResumen);
 
 		// ------------------- PANEL INICIO SESIÓN -------------------
 		PanelInicioSesion = new JPanel();
@@ -1468,70 +1440,129 @@ public class Vista extends JFrame {
 		lblFotoFondoContacto = new JLabel(new ImageIcon("imagenes/CONTACTO.png"));
 		lblFotoFondoContacto.setBounds(-10, 0, 400, 584);
 		Contacto.add(lblFotoFondoContacto);
-
-
-
-
-
-
-		//PANEL REGISTRO
-		PanelRegistro = new JPanel();
-		PanelRegistro.setVisible(false);
-		PanelRegistro.setBounds(0, 0, 384, 545);
-		contentPane.add(PanelRegistro);
-		PanelRegistro.setLayout(null);
-
-		JLabel lblRegistro = new JLabel("REGISTRO");
-		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblRegistro.setBounds(104, 40, 159, 66);
-		PanelRegistro.add(lblRegistro);
-
-		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(40, 133, 46, 14);
-		PanelRegistro.add(lblNombre);
-
-		textNombre = new JTextField();
-		textNombre.setBounds(40, 158, 86, 20);
-		PanelRegistro.add(textNombre);
-		textNombre.setColumns(10);
-
-		JLabel lblCorreo = new JLabel("CORREO ELECTRONICO");
-		lblCorreo.setBounds(40, 218, 159, 14);
-		PanelRegistro.add(lblCorreo);
-
-		textCorreo = new JTextField();
-		textCorreo.setBounds(40, 251, 86, 20);
-		PanelRegistro.add(textCorreo);
-		textCorreo.setColumns(10);
-
-		JLabel lblContrasena = new JLabel("CONTRASENA");
-		lblContrasena.setBounds(40, 291, 159, 14);
-		PanelRegistro.add(lblContrasena);
-
-		textContrasena = new JTextField();
-		textContrasena.setBounds(40, 316, 86, 20);
-		PanelRegistro.add(textContrasena);
-		textContrasena.setColumns(10);
-
-		JLabel lblRepetirContrasena = new JLabel("REPETIR CONTRASENA");
-		lblRepetirContrasena.setBounds(40, 347, 159, 14);
-		PanelRegistro.add(lblRepetirContrasena);
-
-		textRepetirContrasena = new JTextField();
-		textRepetirContrasena.setBounds(40, 373, 86, 20);
-		PanelRegistro.add(textRepetirContrasena);
-		textRepetirContrasena.setColumns(10);
-
-		JLabel lblVerificacion = new JLabel("VERIFICACION");
-		lblVerificacion.setBounds(40, 463, 120, 14);
-		PanelRegistro.add(lblVerificacion);
-
-		btnValidar = new JButton("");
-		btnValidar.setBounds(235, 459, 38, 34);
-		PanelRegistro.add(btnValidar);
-
-		JLabel lblFotoFondo2 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
-		lblFotoFondo2.setBounds(0, 0, 390, 550);
-		PanelRegistro.add(lblFotoFondo2);
+		
+				PanelResumenDomicilio = new JPanel();
+				PanelResumenDomicilio.setVisible(false);
+				PanelResumenDomicilio.setBounds(0, 0, 386, 547);
+				contentPane.add(PanelResumenDomicilio);
+				PanelResumenDomicilio.setLayout(null);
+				
+						textDireccion = new JTextField();
+						textDireccion.setBounds(215, 464, 86, 20);
+						PanelResumenDomicilio.add(textDireccion);
+						textDireccion.setColumns(10);
+						
+								lblDireccion = new JLabel("DIRECCION:");
+								lblDireccion.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+								lblDireccion.setBounds(72, 467, 104, 14);
+								PanelResumenDomicilio.add(lblDireccion);
+								
+										lblCostePedido_1 = new JLabel("\r\n");
+										lblCostePedido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+										lblCostePedido_1.setBounds(186, 375, 45, 13);
+										PanelResumenDomicilio.add(lblCostePedido_1);
+										
+												lblResumenPedido_1 = new JLabel("RESUMEN DEL PEDIDO");
+												lblResumenPedido_1.setFont(new Font("Times New Roman", Font.BOLD, 25));
+												lblResumenPedido_1.setBounds(48, 50, 294, 43);
+												PanelResumenDomicilio.add(lblResumenPedido_1);
+												
+														btnNewButton_1 = new JButton("--->");
+														btnNewButton_1.setBounds(310, 229, 66, 61);
+														PanelResumenDomicilio.add(btnNewButton_1);
+														
+																lblBurgerElegido_1 = new JLabel("");
+																lblBurgerElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																lblBurgerElegido_1.setBounds(117, 190, 144, 20);
+																PanelResumenDomicilio.add(lblBurgerElegido_1);
+																
+																		lblBebidaElegida_1 = new JLabel("");
+																		lblBebidaElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																		lblBebidaElegida_1.setBounds(117, 219, 144, 20);
+																		PanelResumenDomicilio.add(lblBebidaElegida_1);
+																		
+																				lblPatataElegida_1 = new JLabel("");
+																				lblPatataElegida_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																				lblPatataElegida_1.setBounds(117, 249, 144, 20);
+																				PanelResumenDomicilio.add(lblPatataElegida_1);
+																				
+																						lblComplementoElegido_1 = new JLabel("");
+																						lblComplementoElegido_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																						lblComplementoElegido_1.setBounds(117, 279, 144, 20);
+																						PanelResumenDomicilio.add(lblComplementoElegido_1);
+																						
+																								lblPrecioResumen_1 = new JLabel("PRECIO:");
+																								lblPrecioResumen_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																								lblPrecioResumen_1.setBounds(117, 371, 66, 20);
+																								PanelResumenDomicilio.add(lblPrecioResumen_1);
+																								
+																										btnVolver3_1 = new JButton("<---");
+																										btnVolver3_1.setBounds(22, 495, 85, 21);
+																										PanelResumenDomicilio.add(btnVolver3_1);
+																										
+																												lblPergaminoPedido_1 = new JLabel(new ImageIcon("imagenes/Pergamino.png"));
+																												lblPergaminoPedido_1.setBounds(62, 130, 238, 331);
+																												PanelResumenDomicilio.add(lblPergaminoPedido_1);
+																												
+																														lblFotoFondoResumen_1 = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																														lblFotoFondoResumen_1.setBounds(0, 0, 386, 547);
+																														PanelResumenDomicilio.add(lblFotoFondoResumen_1);
+																														
+																																PanelResumen = new JPanel();
+																																PanelResumen.setVisible(false);
+																																PanelResumen.setBounds(0, 0, 386, 547);
+																																contentPane.add(PanelResumen);
+																																PanelResumen.setLayout(null);
+																																
+																																		lblCostePedido = new JLabel("\r\n");
+																																		lblCostePedido.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																		lblCostePedido.setBounds(176, 375, 45, 13);
+																																		PanelResumen.add(lblCostePedido);
+																																		
+																																				lblResumenPedido = new JLabel("RESUMEN DEL PEDIDO");
+																																				lblResumenPedido.setFont(new Font("Times New Roman", Font.BOLD, 25));
+																																				lblResumenPedido.setBounds(56, 68, 288, 26);
+																																				PanelResumen.add(lblResumenPedido);
+																																				
+																																						btnNewButton = new JButton("--->");
+																																						btnNewButton.setBounds(310, 229, 66, 61);
+																																						PanelResumen.add(btnNewButton);
+																																						
+																																								lblBurgerElegido = new JLabel("");
+																																								lblBurgerElegido.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																								lblBurgerElegido.setBounds(117, 190, 144, 20);
+																																								PanelResumen.add(lblBurgerElegido);
+																																								
+																																										lblBebidaElegida = new JLabel("");
+																																										lblBebidaElegida.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																										lblBebidaElegida.setBounds(117, 219, 144, 20);
+																																										PanelResumen.add(lblBebidaElegida);
+																																										
+																																												lblPatataElegida = new JLabel("");
+																																												lblPatataElegida.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																												lblPatataElegida.setBounds(117, 249, 144, 20);
+																																												PanelResumen.add(lblPatataElegida);
+																																												
+																																														lblComplementoElegido = new JLabel("");
+																																														lblComplementoElegido.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																														lblComplementoElegido.setBounds(117, 279, 144, 20);
+																																														PanelResumen.add(lblComplementoElegido);
+																																														
+																																																lblPrecioResumen = new JLabel("PRECIO:");
+																																																lblPrecioResumen.setFont(new Font("Tempus Sans ITC", Font.BOLD, 13));
+																																																lblPrecioResumen.setBounds(117, 371, 49, 20);
+																																																PanelResumen.add(lblPrecioResumen);
+																																																
+																																																		btnVolver3 = new JButton("<---");
+																																																		btnVolver3.setBounds(22, 495, 85, 21);
+																																																		PanelResumen.add(btnVolver3);
+																																																		
+																																																				lblPergaminoPedido = new JLabel(new ImageIcon("imagenes/Pergamino.png"));
+																																																				lblPergaminoPedido.setBounds(62, 130, 238, 331);
+																																																				PanelResumen.add(lblPergaminoPedido);
+																																																				
+																																																						lblFotoFondoResumen = new JLabel(new ImageIcon("imagenes/fondoIS.png"));
+																																																						lblFotoFondoResumen.setBounds(0, 0, 386, 547);
+																																																						PanelResumen.add(lblFotoFondoResumen);
 	}
 }

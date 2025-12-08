@@ -323,10 +323,7 @@ public class Controlador {
             }
         });
 
-        // Listener de Registro si quieres usarlo en el futuro:
-        vista.btnReg.addActionListener(e -> {
-            JOptionPane.showMessageDialog(vista, "Aquí iría el registro");
-        });
+        
         
         
         // Listener para ir a Mi Perfil
@@ -379,12 +376,12 @@ public class Controlador {
 
                 int opcion = JOptionPane.showConfirmDialog(
                         vista,
-                        "¿Quieres cerrar sesión?", // texto del cuadro
-                        "", // titulo del cuadro 
-                        JOptionPane.YES_NO_OPTION // opciones de botones
+                        "¿Quieres cerrar sesión?",
+                        "",
+                        JOptionPane.YES_NO_OPTION 
                 );
 
-                if(opcion == JOptionPane.YES_OPTION) { // si la opcion es sí nos saca al inicio de sesión
+                if(opcion == JOptionPane.YES_OPTION) { 
                     vista.PanelMenuPrincipal.setVisible(false);
                     vista.PanelInicioSesion.setVisible(true);
                 }
@@ -434,12 +431,12 @@ public class Controlador {
 
                 int opcion = JOptionPane.showConfirmDialog(
                         vista,
-                        "¿Quieres cerrar sesión?", // texto del cuadro
-                        "", // titulo del cuadro 
-                        JOptionPane.YES_NO_OPTION // opciones de botones
+                        "¿Quieres cerrar sesión?", 
+                        "", 
+                        JOptionPane.YES_NO_OPTION 
                 );
 
-                if(opcion == JOptionPane.YES_OPTION) { // si la opcion es sí nos saca al inicio de sesión
+                if(opcion == JOptionPane.YES_OPTION) {
                 	vista.Contacto.setVisible(false);
                     vista.PanelMenuPrincipal.setVisible(false);
                     vista.PanelInicioSesion.setVisible(true);
@@ -750,6 +747,8 @@ public class Controlador {
 				
 				vista.lblDireccionPedido.setText(direccion);
 				vista.lblCodigo_1.setText(codigo);
+				vista.PanelResumen.setVisible(false);
+				vista.PanelResumenDomicilio.setVisible(false);
 			}
 			
 			public static String crearCodigo() {
@@ -784,6 +783,8 @@ public class Controlador {
 			public void actionPerformed(ActionEvent e) {
 				vista.PanelResumenDomicilio.setVisible(false);
 				vista.PanelDomicilio2.setVisible(true);
+				vista.PanelResumen.setVisible(false);
+				
 			}
 		});
         
@@ -959,6 +960,7 @@ public class Controlador {
 				vista.PanelMenuPrincipal.setVisible(true);
 				vista.PanelResumenDomicilio.setVisible(false);
 				vista.PanelResumen.setVisible(false);
+				
 			}
 		});
         
@@ -978,6 +980,7 @@ public class Controlador {
 			public void actionPerformed(ActionEvent e) {
 				vista.PanelAdmin.setVisible(false);
 				vista.PanelInicioSesion.setVisible(true);
+				vista.PanelMenuPrincipal.setVisible(false);
 			}
 		});
         
@@ -986,13 +989,104 @@ public class Controlador {
 			public void actionPerformed(ActionEvent e) {
 				vista.PanelAdmin.setVisible(false);
 				vista.PanelModificarProd.setVisible(true);
-				
-				
-				
+				actualizarComidas();
+
 				
 				
 			}
 
+		});
+        
+        //EL COMBO DE MODIFICAR PRODUCTO
+
+        vista.comboBoxM.addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		Comida comidaSelec = (Comida) vista.comboBoxM.getSelectedItem();
+				if (comidaSelec == null) return;
+				
+				vista.lblPanR_2.setText(comidaSelec.getPan());
+	            vista.lblCarneR_2.setText(comidaSelec.getCarne());
+	            vista.lblQuesoR_2.setText(comidaSelec.getQueso());
+	            vista.lblExtraR_2.setText(comidaSelec.getExtra());
+	            vista.lblPrecioR.setText(String.valueOf(comidaSelec.getPrecio()));
+				
+        	}
+        });
+        
+        //CANCELAR MODIFICAR PRODUCTO
+        vista.btnCancelarModificacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelModificarProd.setVisible(false);
+				vista.PanelAdmin.setVisible(true);
+				
+				
+			}
+		});
+        
+        //BOTON MODIFICAR PRODUCTO
+        vista.btnConfirmarModificacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Comida comidaSeleccionada = (Comida) vista.comboBoxM.getSelectedItem();
+				if (comidaSeleccionada == null) {
+				    JOptionPane.showMessageDialog(vista, "Por favor, seleccione una comida para modificar.");
+				    return;
+				}
+
+				// Obtener nuevos valores
+		
+				String nuevoPan = vista.textPanMod.getText();
+				String nuevaCarne = vista.textCarneMod.getText();
+				String nuevoQueso = vista.textQuesoMod.getText();
+				String nuevoExtra = vista.textExtraMod.getText();
+				String nuevoPrecioStr = vista.textPrecioMod.getText();
+
+				// Validar y actualizar
+				
+				if (!nuevoPan.isEmpty()) {
+				    comidaSeleccionada.setPan(nuevoPan);
+				}
+				if (!nuevaCarne.isEmpty()) {
+				    comidaSeleccionada.setCarne(nuevaCarne);
+				}
+				if (!nuevoQueso.isEmpty()) {
+				    comidaSeleccionada.setQueso(nuevoQueso);
+				}
+				if (!nuevoExtra.isEmpty()) {
+				    comidaSeleccionada.setExtra(nuevoExtra);
+				}
+				if (!nuevoPrecioStr.isEmpty()) {
+				    try {
+				        double nuevoPrecio = Double.parseDouble(nuevoPrecioStr);
+				        comidaSeleccionada.setPrecio(nuevoPrecio);
+				    } catch (NumberFormatException ex) {
+				        JOptionPane.showMessageDialog(vista, "Precio inválido. Por favor, ingrese un número válido.");
+				        return;
+				    }
+				}
+
+				JOptionPane.showMessageDialog(vista, "Producto modificado correctamente.");
+
+		
+				vista.textPanMod.setText("");
+				vista.textCarneMod.setText("");
+				vista.textQuesoMod.setText("");
+				vista.textExtraMod.setText("");
+				vista.textPrecioMod.setText("");
+
+				actualizarComidas();
+				vista.PanelModificarProd.setVisible(false);
+				vista.PanelAdmin.setVisible(true);
+			}
+		});
+        
+        //CANCELAR REGISTRO
+        vista.btnCancelarRegistro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.PanelRegistro.setVisible(false);
+				vista.PanelInicioSesion.setVisible(true);
+			}
 		});
 
     }
@@ -1008,9 +1102,11 @@ public class Controlador {
             if (c.getColor() == 1) {
                 vista.CbRoja.addItem(c);
                 vista.CbRoja_1.addItem(c);
+                vista.comboBoxM.addItem(c);
             } else if (c.getColor() == 2) {
                 vista.CbVerde.addItem(c);
                 vista.CbVerde_1.addItem(c);
+                vista.comboBoxM.addItem(c);
             }
         }
 		
