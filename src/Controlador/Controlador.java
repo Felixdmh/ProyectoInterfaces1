@@ -25,7 +25,6 @@ public class Controlador {
     static String nombre;
     static HashMap<Integer, Comida> listaComidas = new HashMap<>();
     
-    //Valiables necesarias para pedir
     private int idBurger;
     private int idBebida;
     private int idPatata;
@@ -42,16 +41,16 @@ public class Controlador {
     private String direccion;
     public static String codigo; //DEBE DE SER ESTATICO PARA PODER UTILIZARSE EN EL METODO CREAR CODIGO
     
-    Comida c1 = new Comida(1, "Pizza", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
+    Comida c1 = new Comida(1, "Burger Changerburger", 1, 8.99, "Normal", "Pollo", "Mozzarella", "Extra salsa");
 	Comida c2 = new Comida(2, "Hamburguesa", 2, 5.49, "Integral", "Res", "Cheddar", "Tocino");
-	Comida c3 = new Comida(3, "Sushi",	1, 12.99, "Centeno", "Atún", "Requeson", "Aguacate");
-	Comida c4 = new Comida(4, "Ensalada", 2, 6.99, "Sin pan", "Ninguna", "Feta", "Nueces");
-	Comida c5 = new Comida(5, "Taco", 1, 4.99, "Maíz", "Cerdo", "Queso fresco", "Cilantro");
-	Comida c6 = new Comida(6, "Pasta", 2, 7.99, "Sin pan", "Pollo", "Parmesano", "Champiñones");
-	Comida c7 = new Comida(7, "Wrap", 1, 6.49, "Tortilla", "Pavo", "Suizo", "Lechuga");
-	Comida c8 = new Comida(8, "Sopa", 2, 5.99, "Sin pan", "Ninguna", "Ninguno", "Crutones");
-	Comida c9 = new Comida(9, "Curry", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
-	Comida c10 = new Comida(10, "Paella", 1, 11.99, "Sin pan", "Mariscos", "Ninguno", "Limón");
+	Comida c3 = new Comida(3, "Amumu Burger",	1, 12.99, "Centeno", "Atún", "Requeson", "Aguacate");
+	Comida c4 = new Comida(4, "Rainbowlger", 2, 6.99, "Multicolor", "Gato", "Azul", "Nueces");
+	Comida c5 = new Comida(5, "TacoBurger", 1, 4.99, "Maíz", "Cerdo", "Queso fresco", "Cilantro");
+	Comida c6 = new Comida(6, "DaniRepBurger", 2, 7.99, "Trigo", "Pollo", "Parmesano", "Champiñones");
+	Comida c7 = new Comida(7, "ChilliBurger", 1, 6.49, "Tortilla", "Pavo", "Suizo", "Lechuga");
+	Comida c8 = new Comida(8, "BurgerMini", 2, 5.99, "Pan de leche", "Ninguna", "Ninguno", "Crutones");
+	Comida c9 = new Comida(9, "Inferno", 1, 9.49, "Naan", "Cordero", "Ninguno", "Yogur");
+	Comida c10 = new Comida(10, "Ocean", 1, 11.99, "Integral", "Mariscos", "Ninguno", "Limón");
 	
     
 
@@ -83,7 +82,7 @@ public class Controlador {
 		listaComidas.put(c10.getIdComida(), c10);
 		
 		
-		Bebida b1 = new Bebida(1, "Coca-Cola", 1.5);
+		Bebida b1 = new Bebida(1, "CocaCola", 1.5);
 		Bebida b2 = new Bebida(2, "Agua", 1.0);
 		Bebida b3 = new Bebida(3, "Monster", 2.0);
 		Bebida b4 = new Bebida(4, "Cerveza", 2.5);
@@ -161,7 +160,7 @@ public class Controlador {
     	        String contrasena = vista.textContrasena.getText().trim();
     	        String repetirContrasena = vista.textRepetirContrasena.getText().trim();
 
-    	        // Validaciones
+    	 
     	        if (nombre.isEmpty() || correo.isEmpty() || contrasena.isEmpty() || repetirContrasena.isEmpty()) {
     	            JOptionPane.showMessageDialog(vista, "Por favor, complete todos los campos.");
     	            return;
@@ -172,7 +171,7 @@ public class Controlador {
     	            return;
     	        }
 
-    	        // comprobar usuario existente
+    
     	        for (Usuarios u : listaUsuarios) {
     	            if (u.getNombre().equalsIgnoreCase(nombre)) {
     	                JOptionPane.showMessageDialog(vista, "El nombre de usuario ya existe.");
@@ -180,17 +179,17 @@ public class Controlador {
     	            }
     	        }
 
-    	        // Añadir usuario
+    	     
     	        listaUsuarios.add(new Usuarios(nombre, contrasena, listaUsuarios.size() + 1));
     	        JOptionPane.showMessageDialog(vista, "Registro exitoso. Ahora puede iniciar sesión.");
 
-    	        // LIMPIAR CAMPOS
+ 
     	        vista.textNombre.setText("");
     	        vista.textCorreo.setText("");
     	        vista.textContrasena.setText("");
     	        vista.textRepetirContrasena.setText("");
 
-    	        // Volver al menú
+    
     	        vista.PanelRegistro.setVisible(false);
     	        vista.PanelInicioSesion.setVisible(true);
     	    }
@@ -878,13 +877,13 @@ public class Controlador {
         vista.btnEliminarProducto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//elimar producto por nombre
+				
 				if(!vista.textBurgerElim.getText().isEmpty()) {
 					String nombreAEliminar = vista.textBurgerElim.getText();
 					listaComidas.values().removeIf(comida -> comida.getNombre().equalsIgnoreCase(nombreAEliminar));
 					
 					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
-					//eliminar de los JComboBox
+		
 					vista.CbRoja.removeItem(nombreAEliminar);
 					vista.CbVerde.removeItem(nombreAEliminar);	
 					
@@ -892,7 +891,7 @@ public class Controlador {
 				 
 				if(!vista.textBebidaElim.getText().isEmpty()) {
 					String nombreAEliminar = vista.textBebidaElim.getText();
-					//eliminar bebida del JComboBox
+	
 					vista.CbBebida.removeItem(nombreAEliminar);
 					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
 					return;
@@ -901,7 +900,7 @@ public class Controlador {
 				
 				if(!vista.textPatataElim.getText().isEmpty()) {
 					String nombreAEliminar = vista.textPatataElim.getText();
-					//eliminar patata del JComboBox
+				
 					vista.CbPatatas.removeItem(nombreAEliminar);
 					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
 					return;
@@ -910,7 +909,7 @@ public class Controlador {
 				
 				if(!vista.textExtraElim.getText().isEmpty()) {
 					String nombreAEliminar = vista.textExtraElim.getText();
-					//eliminar complemento del JComboBox
+				
 					vista.CbComp.removeItem(nombreAEliminar);
 					JOptionPane.showMessageDialog(vista, "Producto eliminado correctamente");
 					return;
@@ -919,6 +918,9 @@ public class Controlador {
 				
 				vista.PanelAnadirProd.setVisible(false);
 				vista.PanelMenuPrincipal.setVisible(true);
+				vista.PanelEliminarProd.setVisible(false);
+				vista.PanelAdmin.setVisible(false);
+				vista.PanelEliminarProd.setVisible(false);
 			}
 			
 			
@@ -1034,7 +1036,7 @@ public class Controlador {
 				    return;
 				}
 
-				// Obtener nuevos valores
+			
 		
 				String nuevoPan = vista.textPanMod.getText();
 				String nuevaCarne = vista.textCarneMod.getText();
@@ -1042,7 +1044,6 @@ public class Controlador {
 				String nuevoExtra = vista.textExtraMod.getText();
 				String nuevoPrecioStr = vista.textPrecioMod.getText();
 
-				// Validar y actualizar
 				
 				if (!nuevoPan.isEmpty()) {
 				    comidaSeleccionada.setPan(nuevoPan);
@@ -1097,7 +1098,7 @@ public class Controlador {
         vista.CbRoja_1.removeAllItems();
         vista.CbVerde_1.removeAllItems();
 
-        // Rellenar desde la lista "oficial"
+    
         for (Comida c : listaComidas.values()) {
             if (c.getColor() == 1) {
                 vista.CbRoja.addItem(c);
