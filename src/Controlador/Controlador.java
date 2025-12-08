@@ -195,7 +195,7 @@ public class Controlador {
     	    }
     	});
     	
-    		//boton administrador
+    		//BOTON ADMIN
     		vista.btnAdmin.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
     				nombre = vista.txtUsuario.getText().trim();
@@ -219,7 +219,7 @@ public class Controlador {
 	                    }
 	                }
 	                if(encontrado) {
-	                	// Solicitar código
+	                	
 	            	    String codigo = JOptionPane.showInputDialog(
 	            	            vista,
 	            	            "Ingrese el código de administrador:",
@@ -227,22 +227,22 @@ public class Controlador {
 	            	            JOptionPane.QUESTION_MESSAGE
 	            	    );
 	
-	            	    // Si cancela o cierra ventana
+	            	 
 	            	    if (codigo == null) {
 	            	        return;
 	            	    }
 	
-	            	    // Validación
+	            	
 	            	    if (codigo.equals("123")) {
 	
-	            	        // Código correcto → entrar al menú
+	            	       
 	            	        JOptionPane.showMessageDialog(vista, "Acceso concedido.");
 	
 	            	        vista.PanelInicioSesion.setVisible(false);
 	            	        vista.PanelAdmin.setVisible(true);
 	
 	            	    } else {
-	            	        // Código incorrecto
+	            	      
 	            	        JOptionPane.showMessageDialog(vista, "Código incorrecto. Acceso denegado.");
 	            	    }
 	            	}
@@ -252,8 +252,7 @@ public class Controlador {
 
         		 
         });
-    		//Panel de admins
-    		//boton añadir producto
+    		//BOTON AÑADIR PROD
     		 vista.btnAnadirProd.addActionListener(new ActionListener() {
     	        	public void actionPerformed(ActionEvent e) {
     	        		
@@ -278,7 +277,7 @@ public class Controlador {
     	        });
     		
 
-        // ------------ LISTENER INICIO SESIÓN ------------
+        //BOTON INICIAR SESION
         vista.btnInSes.addActionListener(new ActionListener() {
 
             @Override
@@ -311,7 +310,7 @@ public class Controlador {
                     vista.txtUsuario.setText("");
                     vista.passwordField.setText("");
 
-                    // CAMBIO DE PANEL
+            
                     vista.PanelInicioSesion.setVisible(false);
                     vista.PanelMenuPrincipal.setVisible(true);
                     vista.Contacto.setVisible(false);
@@ -325,7 +324,7 @@ public class Controlador {
         
         
         
-        // Listener para ir a Mi Perfil
+        //FOTO DE ABAJO DEL PRFIL
         vista.foticoperfil.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
@@ -336,7 +335,7 @@ public class Controlador {
         	}
         });
         
-        //Boton para volver al menu principal desde mi perfil
+        //VOLVER AL MENU PRINCIPAL DESDE EL PERFIL
         vista.btnVolverMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.MiPerfil.setVisible(false);
@@ -353,7 +352,7 @@ public class Controlador {
         });
         
         
-        //Boton para volver al perfil desde contacto
+        //VOLVER AL PERFIL DESDE CONTACTO
         vista.btnVolverContacto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				vista.Contacto.setVisible(false);
@@ -373,12 +372,7 @@ public class Controlador {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                int opcion = JOptionPane.showConfirmDialog(
-                        vista,
-                        "¿Quieres cerrar sesión?",
-                        "",
-                        JOptionPane.YES_NO_OPTION 
-                );
+                int opcion = JOptionPane.showConfirmDialog(vista,"¿Quieres cerrar sesión?","",JOptionPane.YES_NO_OPTION);
 
                 if(opcion == JOptionPane.YES_OPTION) { 
                     vista.PanelMenuPrincipal.setVisible(false);
@@ -428,12 +422,7 @@ public class Controlador {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                int opcion = JOptionPane.showConfirmDialog(
-                        vista,
-                        "¿Quieres cerrar sesión?", 
-                        "", 
-                        JOptionPane.YES_NO_OPTION 
-                );
+                int opcion = JOptionPane.showConfirmDialog(vista,"¿Quieres cerrar sesión?", "", JOptionPane.YES_NO_OPTION);
 
                 if(opcion == JOptionPane.YES_OPTION) {
                 	vista.Contacto.setVisible(false);
@@ -793,16 +782,11 @@ public class Controlador {
 				
 				vista.PanelResumen.setVisible(false);
 				vista.PanelCodPedido.setVisible(true);
-				 
-				
-				
 				
 				crearCodigo();
 				
 				vista.lblCodigo.setText(codigo);
-				
-				
-				
+					
 			}
 
 			public static String crearCodigo() {
@@ -1093,7 +1077,7 @@ public class Controlador {
     }
     public void actualizarComidas() {
 		
-		 vista.CbRoja.removeAllItems();
+		vista.CbRoja.removeAllItems();
         vista.CbVerde.removeAllItems();
         vista.CbRoja_1.removeAllItems();
         vista.CbVerde_1.removeAllItems();
